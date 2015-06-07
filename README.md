@@ -2,19 +2,18 @@
 <!-- Add link when available -->
 
 ## Minimum Viable Product
-AudioFile is an audio-sharing web application using Ruby on Rails for the backend and Backbone.js for the front. It is based on [SoundCloud][https://soundcloud.com].
+AudioFile is an audio-sharing web application built with Ruby on Rails on the backend and Backbone.js on the front. It is based on [SoundCloud][https://soundcloud.com].
 
 Users can:
 
-- [] Create accounts
-- [] Create sessions (i.e., log in)
-- [] Upload tracks 
-- [] Listen to uploaded tracks
-- [] Create playlists
-- [] Like individual tracks and entire playlists
-- [] Follow other users 
-- [] Tag tracks
-- [] Search for tracks by name, album and/or tag
+- [ ] Create accounts
+- [ ] Create sessions (i.e., log in)
+- [ ] Upload tracks 
+- [ ] View all public tracks
+- [ ] View stream of followed users' tracks
+- [ ] Listen to tracks
+- [ ] Like tracks and playlists
+- [ ] Create playlists
 
 ## Design Docs
 * [Wireframes][views]
@@ -23,7 +22,7 @@ Users can:
 [views]:  ./docs/views.md
 [schema]: ./docs/schema.md
 
-#Implementation Timeline
+## Implementation Timeline
 
 ### Phase 1:
 
