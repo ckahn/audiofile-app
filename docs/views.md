@@ -31,6 +31,6 @@
 [home-explore]:    ./wireframes/HomeExploreView.png
 [home-collection]: ./wireframes/HomeCollectionView.png
 [user-show]:       ./wireframes/UserProfileView.png
-[user-edit]:       ./wireframes/UserEditView.png
+[user-edit]:       ./wireframes/UserEditVIew.png
 [track-show]:      ./wireframes/TrackView.png
 
