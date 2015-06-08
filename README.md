@@ -31,7 +31,7 @@ create/read/updated/destroy user and track data. Finally, I'll push the code to
 Heroku and make sure my production environment works properly. By the end up
 this phase, I should have a working API.
 
-<!-- [Details][phase-one] -->
+[Details][phase-one]
 
 ### Phase 2: Track storage and Backbone views (~3 days)
 I'll use AWS to store audio files and create views for showing user info,
@@ -39,7 +39,7 @@ viewing all stored tracks, and viewing stored tracks for followed users. By the
 end of this phase the user should be able to view (but not yet upload or play)
 these tracks, as well as view and update their info.
 
-<!-- [Details][phase-two] -->
+[Details][phase-two]
 
 ### Phase 3: Uploading and playing songs (~3 days)
 
@@ -50,7 +50,7 @@ the end of this phase, users should be able to upload, play (including repeat
 and shuffle) and like tracks.  When a track is playing, the "next" and
 "previous" tracks will be those after and before the list it was accessed from.
 
-<!-- [Details][phase-three] -->
+[Details][phase-three]
 
 [phase-one]:   ./docs/phases/phase1.md
 [phase-two]:   ./docs/phases/phase2.md
