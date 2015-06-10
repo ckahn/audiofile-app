@@ -6,7 +6,7 @@ AudioFileApp.Routers.Router = Backbone.Router.extend({
   routes: {
     '': 'home',
     'collection': 'collection',
-    'stream': 'home',
+    'home': 'home',
     'upload': 'upload'
   },
 
@@ -16,7 +16,7 @@ AudioFileApp.Routers.Router = Backbone.Router.extend({
   },
 
   home: function () {
-    var homeView = new AudioFileApp.Views.TracksStream();
+    var homeView = new AudioFileApp.Views.TracksHome();
     this.swapView(homeView);
   },
 

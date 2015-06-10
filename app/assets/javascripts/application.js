@@ -17,5 +17,6 @@
 //= require underscore
 //= require backbone
 //= require audiofile_app
-//= require_tree ./routers
+//= require_tree ../templates
 //= require_tree ./views
+//= require_tree ./routers
