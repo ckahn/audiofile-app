@@ -4,6 +4,7 @@ AudioFileApp.Routers.Router = Backbone.Router.extend({
   },
 
   routes: {
+    '': 'home',
     'collection': 'collection',
     'stream': 'home',
     'upload': 'upload'
