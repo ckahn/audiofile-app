@@ -3,6 +3,8 @@
 <div id="main"></div>
 
 <script>
+  window.CURRENT_USER_ID = <%= current_user.id %>
+  
   $(document).ready(function () {
     AudioFileApp.initialize();
   });
