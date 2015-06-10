@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     )
     if @user
       log_in(@user)
-      redirect_to new_session_url
+      redirect_to root_url
     else
       flash[:errors] = ["Invalid username/password"]
       redirect_to new_session_url
