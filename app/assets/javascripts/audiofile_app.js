@@ -5,11 +5,9 @@ window.AudioFileApp = {
   Routers: {},
   initialize: function() {
   // alert('Hello from Backbone!');
-    new AudioFileApp.Routers.Router($('#main'));
+    var router = new AudioFileApp.Routers.Router($('#main'));
+    var navbar = new AudioFileApp.Views.NavbarView();
+    $('#navbar').html(navbar.render().$el);
     Backbone.history.start();
   }
 };
-
-$(document).ready(function(){
-  AudioFileApp.initialize();
-});
