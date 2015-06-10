@@ -1,7 +1,12 @@
+<% action_path, submit_label = session_url, "Sign In" %>
+<% if form_type == :new_user %>
+<% action_path, submit_label = users_url, "Sign Up" %>
+<% end %>
+
 <div class="jumbotron container">
   <h1>Welcome to AudioFile</h1>
   <h2>A music-sharing site based on <a href="http://www.soundcloud.com">SoundCloud</a></h2>
-  <form action="<%= users_url %>" method="post" class="form-inline">
+  <form action="<%= action_path %>" method="post" class="form-inline">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <div class="form-group">
       <input type="text" name="user[username]" value="<%= @user.username %>" class="form-control" placeholder="Username">
@@ -9,3 +14,11 @@
     <div class="form-group">
       <input type="password" name="user[password]" class="form-control" placeholder="Password">
     </div>
+    <button type="submit" class="btn btn-primay"><%= submit_label %></button>
+  </form>
+  <% if form_type == :new_user %>
+  <p>Already have an account? <a href="<%= new_session_url %>">Log in</a>.</p>
+  <% else %>
+  <p>Don't have an account? <a href="<%= new_user_url %>">Create one</a> or <a href="#">use the guest account</a>.</p>
+  <% end %>
+</div>

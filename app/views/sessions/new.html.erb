@@ -1,5 +1,1 @@
-<%= render partial: 'layouts/form', object: @user %>
-    <button type="submit" class="btn btn-primay">Sign Up</button>
-  </form>
-  <p>Don't have an account? <a href="<%= new_user_url %>">Create one</a> or <a href="#">use the guest account</a>.</p>
-</div>
+<%= render partial: 'layouts/form', locals: { user: @user, form_type: :new_session } %>
