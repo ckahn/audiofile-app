@@ -7,6 +7,8 @@ AudioFileApp.Routers.Router = Backbone.Router.extend({
     '': 'home',
     'collection': 'collection',
     'home': 'home',
+    'profile': 'profile',
+    'stream': 'stream',
     'upload': 'upload'
   },
 
@@ -20,8 +22,14 @@ AudioFileApp.Routers.Router = Backbone.Router.extend({
     this.swapView(homeView);
   },
 
+  profile: function () {
+    var profileView = new AudioFileApp.Views.UserProfile();
+    this.swapView(profileView);
+  },
+
   upload: function () {
-    console.log('UPLOAD');
+    var uploadView = new AudioFileApp.Views.TrackUpload();
+    this.swapView(uploadView);
   },
 
   swapView: function (view) {
