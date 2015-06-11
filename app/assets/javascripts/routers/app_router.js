@@ -12,7 +12,9 @@ AudioFileApp.Routers.Router = Backbone.Router.extend({
   },
 
   collection: function () {
-    var collectionView = new AudioFileApp.Views.TracksCollection();
+    var collectionView = new AudioFileApp.Views.TracksCollection({
+      collection: new AudioFileApp.Collections.Tracks()
+    });
     this.swapView(collectionView);
   },
 
