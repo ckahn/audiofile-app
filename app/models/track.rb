@@ -5,4 +5,12 @@ class Track < ActiveRecord::Base
     class_name: 'User',
     foreign_key: :uploader_id,
   )
+
+  has_many :likes
+
+  has_many(
+    :likers,
+    through: :likes,
+    source: :user
+  )
 end

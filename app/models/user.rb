@@ -8,8 +8,18 @@ class User < ActiveRecord::Base
   after_initialize :ensure_session_token
 
   has_many(
-    :tracks,
-    foreign_key: :uploader_id
+    :uploaded_tracks,
+    class_name: "Track",
+    foreign_key: :uploader_id,
+    primary_key: :id
+  )
+
+  has_many :likes
+
+  has_many(
+    :liked_tracks,
+    through: :likes,
+    source: :track
   )
 
   def self.find_by_credentials(username, password)
