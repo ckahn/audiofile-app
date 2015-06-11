@@ -7,6 +7,11 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
+  has_many(
+    :tracks,
+    foreign_key: :uploader_id
+  )
+
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     return user if user && user.has_password?(password)

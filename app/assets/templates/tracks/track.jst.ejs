@@ -1,1 +1,7 @@
-<%= track.escape('title') %>
+Title: <%= track.escape('title') %><br>
+Uploader ID: <%= track.escape('uploader_id') %><br>
+
+<audio controls>
+  <source src="<%= track.escape('source') %>" type="audio/mp3">
+  Your browser does not support this audio element.
+</audio>

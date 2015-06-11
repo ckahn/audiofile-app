@@ -31,6 +31,7 @@ AudioFileApp.Routers.Router = Backbone.Router.extend({
   },
 
   upload: function () {
+    cloudinary.openUploadWidget({ cloud_name: 'dhowpobqx', upload_preset: 'tyi3ktkx'});
     var uploadView = new AudioFileApp.Views.TrackUpload();
     this.swapView(uploadView);
   },
