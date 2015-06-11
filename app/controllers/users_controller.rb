@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :require_logged_in
+  before_filter :require_logged_in, except: [:create, :new]
 
   def create
     @user = User.new(user_params)
