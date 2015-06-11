@@ -1,6 +1,6 @@
 AudioFileApp.Views.NavbarView = Backbone.View.extend({
   initialize: function (options) {
-    this.user = options.user;
+    this.listenTo(this.user, 'change', this.render)
   },
 
   events: {
@@ -15,7 +15,7 @@ AudioFileApp.Views.NavbarView = Backbone.View.extend({
   },
 
   render: function () {
-    var content = this.template({user: this.user});
+    var content = this.template();
     this.$el.html(content);
     return this;
   }

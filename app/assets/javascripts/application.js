@@ -19,5 +19,7 @@
 //= require audiofile_app
 //= require composite_view
 //= require_tree ../templates
-//= require_tree ./views
 //= require_tree ./routers
+//= require_tree ./views
+//= require_tree ./models
+//= require_tree ./collections

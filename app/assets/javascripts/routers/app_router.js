@@ -8,7 +8,6 @@ AudioFileApp.Routers.Router = Backbone.Router.extend({
     'collection': 'collection',
     'home': 'home',
     'profile': 'profile',
-    'stream': 'stream',
     'upload': 'upload'
   },
 
@@ -18,12 +17,14 @@ AudioFileApp.Routers.Router = Backbone.Router.extend({
   },
 
   home: function () {
-    var homeView = new AudioFileApp.Views.TracksHome();
+    var homeView = new AudioFileApp.Views.Home();
     this.swapView(homeView);
   },
 
   profile: function () {
-    var profileView = new AudioFileApp.Views.UserProfile();
+    var user = new AudioFileApp.Models.User({ id: CURRENT_USER_ID });
+    user.fetch();
+    var profileView = new AudioFileApp.Views.UserProfile({ model: user });
     this.swapView(profileView);
   },
 
