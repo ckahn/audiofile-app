@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :tracks, only: [:index]
     get '/users/:id/stream' => 'users#stream'
     get '/users/:id/liked' => 'users#liked'
+    get '/users/:id/uploaded' => 'users#uploaded'
   end
 
   resource :session, only: [:create, :destroy, :new]

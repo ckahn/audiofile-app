@@ -6,7 +6,8 @@ module Api
     end
 
     def liked
-      render text: 'liked'
+      @user = User.find(params[:id])
+      render 'liked'
     end
 
     def show
@@ -25,6 +26,15 @@ module Api
         @tracks += followed.uploaded_tracks
       end
       render 'stream'
+    end
+
+    def uploaded
+      @tracks = []
+      user = User.find(params[:id])
+      user.uploaded_tracks.each do |track|
+        @tracks << track
+      end
+      render 'uploaded'
     end
   end
 end
