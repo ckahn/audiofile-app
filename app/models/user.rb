@@ -22,6 +22,17 @@ class User < ActiveRecord::Base
     source: :track
   )
 
+  has_many(
+    :follows,
+    foreign_key: :follower_id
+  )
+
+  has_many(
+    :followed_users,
+    through: :follows,
+    source: :followed
+  )
+
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     return user if user && user.has_password?(password)

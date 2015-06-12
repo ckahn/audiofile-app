@@ -2,7 +2,7 @@ AudioFileApp.Views.Home = Backbone.View.extend({
   initialize: function () {
     this.tracks = new AudioFileApp.Collections.Tracks();
     this.streamView = new AudioFileApp.Views.HomeStream({
-      collection: AudioFileApp.Collections.tracks
+      collection: AudioFileApp.Collections.tracks.clone()
     });
     this.exploreView = new AudioFileApp.Views.HomeExplore({
       collection: AudioFileApp.Collections.tracks

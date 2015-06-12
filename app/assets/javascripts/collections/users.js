@@ -1,4 +1,4 @@
-AudioFileApp.Collections.Tracks = Backbone.Collection.extend({
+AudioFileApp.Collections.Users = Backbone.Collection.extend({
   model: AudioFileApp.Models.User,
 
   url: '/api/users'

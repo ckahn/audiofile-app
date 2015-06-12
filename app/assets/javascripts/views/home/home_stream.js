@@ -1,5 +1,7 @@
 AudioFileApp.Views.HomeStream = Backbone.View.extend({
   initialize: function () {
+    this.collection.url = '/api/users/3/stream';
+    this.collection.fetch();
     this.listenTo(this.collection, 'add', this.render);
   },
 
@@ -10,7 +12,6 @@ AudioFileApp.Views.HomeStream = Backbone.View.extend({
   render: function () {
     var content = this.template();
     this.$el.html(content);
-    this.collection.fetch();
     var tracksIndexView = new AudioFileApp.Views.TracksIndex({
       collection: this.collection
     });

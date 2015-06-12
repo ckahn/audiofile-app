@@ -3,9 +3,11 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     resources :users, only: [:show]
+    get '/users/:id/stream' => 'users#stream'
+    get '/users/:id/liked' => 'users#liked'
+    resources :tracks, only: [:index]
   end
 
   resource :session, only: [:create, :destroy, :new]
-  resources :tracks, only: [:index]
   resources :users, only: [:create, :new]
 end
