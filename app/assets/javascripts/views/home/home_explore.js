@@ -1,5 +1,6 @@
 AudioFileApp.Views.HomeExplore = Backbone.CompositeView.extend({
   initialize: function () {
+    this.collection.fetch();
     this.listenTo(this.collection, 'add', this.render);
   },
 
@@ -10,7 +11,6 @@ AudioFileApp.Views.HomeExplore = Backbone.CompositeView.extend({
   render: function () {
     var content = this.template();
     this.$el.html(content);
-    this.collection.fetch();
     var tracksIndexView = new AudioFileApp.Views.TracksIndex({
       collection: this.collection
     });

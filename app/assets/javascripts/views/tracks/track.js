@@ -1,8 +1,11 @@
 AudioFileApp.Views.Track = Backbone.View.extend({
+  initialize: function () {
+
+  },
+
   className: 'list-group-item',
 
   tagName: 'li',
-
 
   template: JST['tracks/track'],
 
