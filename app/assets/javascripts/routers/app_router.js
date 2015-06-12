@@ -1,6 +1,7 @@
 AudioFileApp.Routers.Router = Backbone.Router.extend({
-  initialize: function ($rootEl) {
-    this.$rootEl = $rootEl
+  initialize: function (options) {
+    this.$rootEl = options.$rootEl,
+    this.currentUser = options.currentUser
   },
 
   routes: {
@@ -12,10 +13,11 @@ AudioFileApp.Routers.Router = Backbone.Router.extend({
   },
 
   collection: function () {
+    this.currentUser.fetch();
     var collectionView = new AudioFileApp.Views.TracksCollection({
-      collection: AudioFileApp.Collections.tracks
+      collection: this.currentUser.likedTracks()
     });
-    this.swapView(collectionView);
+    this.swapView(collectionView)
   },
 
   home: function () {

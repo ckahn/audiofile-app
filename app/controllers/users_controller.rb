@@ -12,10 +12,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def index
-    render json: User.all
-  end
-
   def new
     @user = User.new()
   end

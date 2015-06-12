@@ -4,6 +4,7 @@
     password: 'password'
   )
   user.save
+
   2.times do |j|
     track = Track.new(
       title: "Uploaded by #{user.username}",
@@ -11,6 +12,17 @@
         'upload/v1434054398/1._R_A_G_E_-_QuadkilleR_2013_mq669p.mp3',
       uploader_id: user.id
     )
+    track.save
+  end
+
+  2.times do |j|
+    track = Track.new(
+      title: "Liked by #{user.username}",
+      source: 'http://res.cloudinary.com/dhowpobqx/video/' +
+        'upload/v1434054398/1._R_A_G_E_-_QuadkilleR_2013_mq669p.mp3',
+      uploader_id: 2
+    )
+    user.liked_tracks << track
     track.save
   end
 end
