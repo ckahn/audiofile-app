@@ -20,15 +20,6 @@ class UsersController < ApplicationController
     @user = User.new()
   end
 
-  def show
-    user = User.find(params[:id])
-    if params[:id].to_i == current_user.id
-      render json: user
-    else
-      render json: { username: user.username }
-    end
-  end
-
   private
 
   def user_params

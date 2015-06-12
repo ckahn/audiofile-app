@@ -23,6 +23,13 @@
       <input type="password" name="user[password]" class="form-control"
              id="password-field" placeholder="Password">
     </div>
+    <% if flash[:errors] %>
+      <ul class="list-group">
+        <% flash[:errors].each do |error| %>
+        <li class="list-group-item list-group-item-danger"><%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
     <button type="submit" class="btn btn-default"><%= submit_label %></button>
   </form>
   <% if form_type == :new_user %>
