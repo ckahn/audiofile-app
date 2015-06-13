@@ -1,12 +1,10 @@
-AudioFileApp.Views.HomeExplore = Backbone.CompositeView.extend({
+AudioFileApp.Views.TracksList = Backbone.CompositeView.extend({
   initialize: function () {
     this.collection.fetch();
     this.listenTo(this.collection, 'add', this.addTrackSubview);
   },
 
-  id: 'explore-view',
-
-  template: JST['home/explore'],
+  template: JST['tracks/tracks_list'],
 
   addTrackSubview: function (track) {
     var trackSubview = new AudioFileApp.Views.Track({
@@ -21,5 +19,5 @@ AudioFileApp.Views.HomeExplore = Backbone.CompositeView.extend({
     this.$el.html(content);
     this.attachSubviews();
     return this;
-  }
+  },
 });

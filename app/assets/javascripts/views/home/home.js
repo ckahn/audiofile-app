@@ -1,11 +1,10 @@
 AudioFileApp.Views.Home = Backbone.View.extend({
   initialize: function () {
-    this.tracks = new AudioFileApp.Collections.Tracks();
     this.streamView = new AudioFileApp.Views.HomeStream({
-      collection: AudioFileApp.Collections.tracks.clone()
+      collection: new AudioFileApp.Collections.TracksStream()
     });
     this.exploreView = new AudioFileApp.Views.HomeExplore({
-      collection: AudioFileApp.Collections.tracks
+      collection: new AudioFileApp.Collections.TracksExplore()
     });
   },
 
@@ -14,14 +13,14 @@ AudioFileApp.Views.Home = Backbone.View.extend({
     'click #stream-tab': 'showStream'
   },
 
-  id: 'home-tabs',
+  id: 'home-view',
 
-  template: JST['tracks/home'],
+  template: JST['home/home'],
 
   render: function () {
     var content = this.template();
     this.$el.html(content);
-    this.$el.append(this.streamView.render().$el);
+    this.$el.find('#home-view').html(this.streamView.render().$el);
     return this;
   },
 
@@ -32,7 +31,7 @@ AudioFileApp.Views.Home = Backbone.View.extend({
       $('#explore-tab').addClass('active');
       $('#stream-tab').removeClass('active');
       $('#stream-view').empty();
-      this.$el.append(this.exploreView.render().$el);
+      this.$el.find('#home-view').html(this.exploreView.render().$el);
     }
   },
 
@@ -43,11 +42,7 @@ AudioFileApp.Views.Home = Backbone.View.extend({
       $('#explore-tab').removeClass('active');
       $('#stream-tab').addClass('active');
       $('#explore-view').empty();
-      this.$el.append(this.streamView.render().$el);
+      this.$el.find('#home-view').html(this.streamView.render().$el);
     }
-  },
-
-  showSubtab: function (event) {
-    console.log('SUBTAB');
   }
 });

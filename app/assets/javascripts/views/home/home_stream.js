@@ -1,21 +1,25 @@
-AudioFileApp.Views.HomeStream = Backbone.View.extend({
+AudioFileApp.Views.HomeStream = Backbone.CompositeView.extend({
   initialize: function () {
-    this.collection.url = '/api/users/' + CURRENT_USER_ID + '/stream';
     this.collection.fetch();
-    this.listenTo(this.collection, 'add remove', this.render);
+    this.listenTo(this.collection, 'add', this.addTrackSubview);
   },
 
-  id: 'stream-view',
+  // id: 'stream-view',
 
-  template: JST['tracks/stream'],
+  addTrackSubview: function (track) {
+    var trackSubview = new AudioFileApp.Views.Track({
+      model: track,
+      collection: this.collection
+    });
+    this.addSubview("ul#tracks-list", trackSubview);
+  },
+
+  template: JST['home/stream'],
 
   render: function () {
     var content = this.template();
     this.$el.html(content);
-    var tracksIndexView = new AudioFileApp.Views.TracksIndex({
-      collection: this.collection
-    });
-    this.$el.append(tracksIndexView.render().$el);
+    this.attachSubviews();
     return this;
   }
 });
