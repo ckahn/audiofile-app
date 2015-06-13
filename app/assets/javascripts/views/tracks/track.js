@@ -1,11 +1,15 @@
-AudioFileApp.Views.Track = Backbone.View.extend({
+AudioFileApp.Views.Track = Backbone.CompositeView.extend({
   initialize: function () {
+    var likeWidgetView = new AudioFileApp.Views.TrackLikeWidget({
+      model: this.model
+    })
+    this.addSubview("#like-widget", likeWidgetView);
   },
 
   className: 'list-group-item',
 
   events: {
-    'click #like-button': 'toggleLike'
+    'click #like-widget': 'toggleLike'
   },
 
   tagName: 'li',
@@ -15,6 +19,7 @@ AudioFileApp.Views.Track = Backbone.View.extend({
   render: function () {
     var content = this.template({ track: this.model });
     this.$el.html(content);
+    this.attachSubviews();
     return this;
   },
 
