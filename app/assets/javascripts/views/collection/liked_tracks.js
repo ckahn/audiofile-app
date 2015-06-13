@@ -1,5 +1,6 @@
-AudioFileApp.Views.TracksIndex = Backbone.CompositeView.extend({
+AudioFileApp.Views.LikedTracks = Backbone.CompositeView.extend({
   initialize: function () {
+    this.collection.fetch();
     this.listenTo(this.collection, 'add', this.addTrackSubview);
 
     this.collection.each(function (track) {
@@ -7,18 +8,18 @@ AudioFileApp.Views.TracksIndex = Backbone.CompositeView.extend({
     }.bind(this));
   },
 
-  template: JST['tracks/index'],
+  template: JST['collection/liked_tracks'],
 
   addTrackSubview: function (track) {
     var trackSubview = new AudioFileApp.Views.Track({
       model: track,
       collection: this.collection
     });
-    this.addSubview("ul.tracks-index", trackSubview);
+    this.addSubview("ul#liked-tracks-list", trackSubview);
   },
 
   render: function () {
-    var content = this.template({ tracks: this.collection });
+    var content = this.template();
     this.$el.html(content);
     this.attachSubviews();
     return this;

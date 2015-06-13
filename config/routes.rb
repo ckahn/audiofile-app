@@ -6,7 +6,8 @@ Rails.application.routes.draw do
     resources :tracks, only: [:index]
     resources :likes, only: [:create, :destroy]
     get '/users/:id/stream' => 'users#stream'
-    get '/users/:id/liked' => 'users#liked'
+    get '/users/:id/liked_tracks' => 'users#liked_tracks'
+    get '/users/:id/followed_users' => 'users#followed_users'
     get '/users/:id/uploaded' => 'users#uploaded'
   end
 

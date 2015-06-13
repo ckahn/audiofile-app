@@ -2,7 +2,7 @@ AudioFileApp.Views.HomeStream = Backbone.View.extend({
   initialize: function () {
     this.collection.url = '/api/users/' + CURRENT_USER_ID + '/stream';
     this.collection.fetch();
-    this.listenTo(this.collection, 'add', this.render);
+    this.listenTo(this.collection, 'add remove', this.render);
   },
 
   id: 'stream-view',

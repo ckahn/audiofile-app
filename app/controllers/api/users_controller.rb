@@ -5,9 +5,14 @@ module Api
     def index
     end
 
-    def liked
+    def liked_tracks
       @user = User.find(params[:id])
       render 'liked'
+    end
+
+    def followed_users
+      @user = User.find(params[:id])
+      render 'followed'
     end
 
     def show

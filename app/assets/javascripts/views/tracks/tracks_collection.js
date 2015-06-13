@@ -1,21 +1,28 @@
-AudioFileApp.Views.TracksCollection = Backbone.View.extend({
+AudioFileApp.Views.TracksCollection = Backbone.CompositeView.extend({
   initialize: function () {
-    this.collection.url = '/api/users/' + CURRENT_USER_ID + '/liked';
-    this.collection.fetch();
-    this.listenTo(this.collection, 'add', this.render);
+    this.listenTo(this.collection, 'add', this.addTrackSubview);
+
+    this.collection.each(function (track) {
+      this.addTrackSubview(track);
+    }.bind(this));
   },
 
-  id: 'collections-view',
+  id: 'collection-view',
 
   template: JST['tracks/collection'],
 
-  render: function () {
-    var content = this.template();
-    this.$el.html(content);
-    var tracksIndexView = new AudioFileApp.Views.TracksIndex({
+  addTrackSubview: function (track) {
+    var trackSubview = new AudioFileApp.Views.Track({
+      model: track,
       collection: this.collection
     });
-    this.$el.find('#liked-tracks-list').append(tracksIndexView.render().$el);
+    this.addSubview("ul.tracks-index", trackSubview);
+  },
+
+  render: function () {
+    var content = this.template({ tracks: this.collection });
+    this.$el.html(content);
+    this.attachSubviews();
     return this;
-  }
+  },
 });
