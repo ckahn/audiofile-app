@@ -18,6 +18,7 @@
 //= require backbone
 //= require audiofile_app
 //= require composite_view
+//= require likable
 //= require_tree ../templates
 //= require_tree ./routers
 //= require_tree ./views

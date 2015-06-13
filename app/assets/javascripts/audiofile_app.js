@@ -1,4 +1,5 @@
 window.AudioFileApp = {
+  Mixins: {},
   Models: {},
   Collections: {},
   Views: {},

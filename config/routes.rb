@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :users, only: [:show]
     resources :tracks, only: [:index]
+    resources :likes, only: [:create, :destroy]
     get '/users/:id/stream' => 'users#stream'
     get '/users/:id/liked' => 'users#liked'
     get '/users/:id/uploaded' => 'users#uploaded'
