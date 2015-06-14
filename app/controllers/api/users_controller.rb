@@ -3,6 +3,8 @@ module Api
     before_filter :require_logged_in, except: [:create, :new]
 
     def index
+      @users = User.all
+      render 'index'
     end
 
     def liked_tracks

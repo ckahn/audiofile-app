@@ -3,9 +3,7 @@ AudioFileApp.Views.Home = Backbone.View.extend({
     this.streamView = new AudioFileApp.Views.HomeStream({
       collection: new AudioFileApp.Collections.TracksStream()
     });
-    this.exploreView = new AudioFileApp.Views.HomeExplore({
-      collection: new AudioFileApp.Collections.TracksExplore()
-    });
+    this.exploreView = new AudioFileApp.Views.HomeExplore();
   },
 
   events: {

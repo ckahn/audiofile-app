@@ -4,7 +4,7 @@ AudioFileApp.Views.HomeStream = Backbone.CompositeView.extend({
     this.listenTo(this.collection, 'add', this.addTrackSubview);
   },
 
-  // id: 'stream-view',
+  className: 'col-md-8',
 
   addTrackSubview: function (track) {
     var trackSubview = new AudioFileApp.Views.Track({
