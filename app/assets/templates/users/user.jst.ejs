@@ -1,2 +1,9 @@
-id: <%= user.escape('id') %><br>
-username: <%= user.escape('username') %>
+<div class="media">
+  <div class="media-left media-middle">
+      <img class="media-object" width="100px" height="100px" src="<%= user.escape('image') %>" alt="">
+  </div>
+  <div class="media-body">
+    id: <%= user.escape('id') %><br>
+    username: <%= user.escape('username') %>
+  </div>
+</div>

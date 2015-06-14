@@ -1,8 +1,7 @@
 AudioFileApp.Views.UserProfile = Backbone.CompositeView.extend({
   initialize: function () {
     this.listenTo(this.model, 'change', this.render);
-    uploadedTracks = new AudioFileApp.Collections.Tracks();
-    uploadedTracks.url = '/api/users/' + CURRENT_USER_ID + '/uploaded';
+    uploadedTracks = new AudioFileApp.Collections.UploadedTracks();
     uploadedTracks.fetch();
   },
 
@@ -13,10 +12,14 @@ AudioFileApp.Views.UserProfile = Backbone.CompositeView.extend({
   render: function () {
     var content = this.template({ user: this.model });
     this.$el.html(content);
-    var tracksIndexView = new AudioFileApp.Views.TracksIndex({
+    // var tracksIndexView = new AudioFileApp.Views.TracksIndex({
+    //   collection: uploadedTracks
+    // });
+    // this.$el.find('#user-uploaded-list').append(tracksIndexView.render().$el);
+    var tracksList = new AudioFileApp.Views.TracksList({
       collection: uploadedTracks
-    });
-    this.$el.find('#user-uploaded-list').append(tracksIndexView.render().$el);
+    })
+    this.$el.find('#user-uploaded-list').append(tracksList.render().$el);
     return this;
   },
 });

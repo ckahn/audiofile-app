@@ -1,7 +1,8 @@
 3.times do |i|
   user = User.new(
     username: "User-#{i+1}",
-    password: 'password'
+    password: 'password',
+    image: 'http://lorempixel.com/100/100/people/'
   )
 
   user.save
@@ -11,6 +12,7 @@
       title: "Uploaded by #{user.username}",
       source: 'http://res.cloudinary.com/dhowpobqx/video/' +
         'upload/v1434054398/1._R_A_G_E_-_QuadkilleR_2013_mq669p.mp3',
+      image: "http://lorempixel.com/100/100/"
     )
     user.uploaded_tracks << track
   end
@@ -20,7 +22,8 @@
       title: "Liked by #{user.username}",
       source: 'http://res.cloudinary.com/dhowpobqx/video/' +
         'upload/v1434054398/1._R_A_G_E_-_QuadkilleR_2013_mq669p.mp3',
-      uploader_id: 2
+      uploader_id: 2,
+      image: "http://lorempixel.com/100/100/"
     )
     user.liked_tracks << track
   end

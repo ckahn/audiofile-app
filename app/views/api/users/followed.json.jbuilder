@@ -1,1 +1,1 @@
-json.array! @user.followed_users, :id, :username
+json.array! @user.followed_users, :id, :username, :image

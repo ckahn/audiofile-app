@@ -1,10 +1,14 @@
-Title: <%= track.escape('title') %><br>
-# likes: <%= track.escape('num_likes') %><br>
-Liked by you? <%= track.escape('like') %><br>
-Uploader ID: <%= track.escape('uploader_id') %><br>
-
-<audio controls preload="none" src="<%= track.escape('source') %>" type="audio/mp3">
-  <p>Your browser does not support the <code>audio</code> element.</p>
-</audio>
-<br>
-<div id="like-widget"></div>
+<div class="media">
+  <div class="media-left media-middle">
+      <img class="media-object" width="100px" height="100px" src="<%= track.escape('image') %>" alt="">
+  </div>
+  <div class="media-body">
+    <p><small><a href="<%= track.escape('uploader_link') %>"><%= track.escape('uploader_name') %></a></p>
+    <h4><%= track.escape('title') %></h4>
+    <audio controls preload="none" src="<%= track.escape('source') %>" type="audio/mp3">
+      <p>Your browser does not support the <code>audio</code> element.</p>
+    </audio>
+    <br>
+    <div id="like-widget"></div>
+  </div>
+</div>

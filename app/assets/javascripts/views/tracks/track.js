@@ -4,6 +4,11 @@ AudioFileApp.Views.Track = Backbone.CompositeView.extend({
       model: this.model
     })
     this.addSubview("#like-widget", likeWidgetView);
+    this.listenTo(this.model, 'sync', this.sync_);
+  },
+
+  sync_: function () {
+    console.log('SYNC');
   },
 
   className: 'list-group-item',
