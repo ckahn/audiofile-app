@@ -6,9 +6,9 @@ AudioFileApp.Views.UsersList = Backbone.CompositeView.extend({
 
   template: JST['users/users_list'],
 
-  addUserSubview: function (track) {
+  addUserSubview: function (user) {
     var userSubview = new AudioFileApp.Views.User({
-      model: track,
+      model: user,
       collection: this.collection
     });
     this.addSubview("ul#users-list", userSubview);
