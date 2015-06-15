@@ -1,4 +1,4 @@
-3.times do |i|
+10.times do |i|
   user = User.new(
     username: "User-#{i+1}",
     password: 'password',
@@ -7,7 +7,7 @@
 
   user.save
 
-  2.times do |j|
+  5.times do |j|
     track = Track.new(
       title: "Uploaded by #{user.username}",
       source: 'http://res.cloudinary.com/dhowpobqx/video/' +
@@ -17,7 +17,7 @@
     user.uploaded_tracks << track
   end
 
-  2.times do |j|
+  5.times do |j|
     track = Track.new(
       title: "Liked by #{user.username}",
       source: 'http://res.cloudinary.com/dhowpobqx/video/' +

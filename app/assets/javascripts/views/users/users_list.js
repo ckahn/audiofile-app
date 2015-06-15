@@ -1,6 +1,5 @@
 AudioFileApp.Views.UsersList = Backbone.CompositeView.extend({
   initialize: function () {
-    // this.collection.fetch();
     this.listenTo(this.collection, 'add', this.addUserSubview);
   },
 
