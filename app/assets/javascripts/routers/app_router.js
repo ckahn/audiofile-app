@@ -10,6 +10,7 @@ AudioFileApp.Routers.Router = Backbone.Router.extend({
     'home': 'home',
     'profile': 'profile',
     'upload': 'upload',
+    'users/:id/edit': 'userEdit',
     'users/:id': 'userShow',
   },
 
@@ -34,6 +35,10 @@ AudioFileApp.Routers.Router = Backbone.Router.extend({
     cloudinary.openUploadWidget({ cloud_name: 'dhowpobqx', upload_preset: 'tyi3ktkx'});
     var uploadView = new AudioFileApp.Views.TrackUpload()
     this.swapView(uploadView);
+  },
+
+  userEdit: function (id) {
+    var userEditView = new AudioFileApp.Views.UserEdit({ id: id});
   },
 
   userShow: function (id) {

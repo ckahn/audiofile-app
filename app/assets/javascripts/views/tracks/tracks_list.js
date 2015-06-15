@@ -1,6 +1,5 @@
 AudioFileApp.Views.TracksList = Backbone.CompositeView.extend({
   initialize: function () {
-    console.log(this.collection.url);
     this.collection.fetch();
     this.listenTo(this.collection, 'add', this.addTrackSubview);
   },

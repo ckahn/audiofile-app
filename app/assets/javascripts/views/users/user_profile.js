@@ -1,7 +1,5 @@
 AudioFileApp.Views.UserProfile = Backbone.CompositeView.extend({
   initialize: function () {
-    // this.listenTo(this.model, 'change', this.render);
-    // uploadedTracks.fetch();
     var userInfoView = new AudioFileApp.Views.UserInfo({
       model: this.model
     });
