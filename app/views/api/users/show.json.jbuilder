@@ -10,6 +10,9 @@ json.followed_users @user.followed_users, :id, :username, :image
 json.follow @user.follower_relationships.find_by(follower_id: current_user.id)
 json.num_follows @user.followers.size
 json.num_followers @user.followers.size
-json.followers do
-  json.array! @user.followers, :id, :username
+json.followers @user.followers do |follower|
+  json.id follower.id
+  json.username follower.username
+  json.image follower.image
+  json.follow @user.follower_relationships.find_by(followed_id: follower.id)
 end

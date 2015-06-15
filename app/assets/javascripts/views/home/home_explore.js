@@ -7,8 +7,10 @@ AudioFileApp.Views.HomeExplore = Backbone.CompositeView.extend({
     this.addSubview("#tracks-index", tracksIndexView);
 
 
+    allUsers = new AudioFileApp.Collections.Users()
+    allUsers.fetch();
     var usersIndexView = new AudioFileApp.Views.UsersList({
-      collection: new AudioFileApp.Collections.Users()
+      collection: allUsers
     });
 
     this.addSubview("#all-users", usersIndexView);
