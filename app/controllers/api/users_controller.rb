@@ -19,11 +19,7 @@ module Api
 
     def show
       @user = User.find(params[:id])
-      if params[:id].to_i == current_user.id
-        render 'show'
-      else
-        render json: { username: @user.username }
-      end
+      render 'show'
     end
 
     def stream

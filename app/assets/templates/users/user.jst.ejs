@@ -3,7 +3,16 @@
       <img class="media-object" width="100px" height="100px" src="<%= user.escape('image') %>" alt="">
   </div>
   <div class="media-body">
-    id: <%= user.escape('id') %><br>
-    username: <%= user.escape('username') %>
+    <h4>
+      <a href="<%= user.escape('link') %>"<%= user.escape('username') %>">
+        <%= user.escape('username') %>
+      </a>
+    </h4>
+    <p><small>San Francisco, CA</small></p>
+    <% if (user.follow().isNew()) { %>
+      <button class="btn btn-sm">Follow</button>
+    <% } else { %>
+      <button class="btn btn-sm btn-success">Following</button>
+    <% } %>
   </div>
 </div>

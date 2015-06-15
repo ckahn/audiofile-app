@@ -1,20 +1,15 @@
-AudioFileApp.Models.User = Backbone.Model.extend({
-  urlRoot: '/api/users',
+AudioFileApp.Models.User = Backbone.Model.extend(
+  _.extend({}, AudioFileApp.Mixins.Followable, {
 
-  followedUsers: function () {
-    if (!this._followedUsers) {
-      this._followedUsers = new AudioFileApp.Collections.Users(
-        [], { user: this }
-      );
-    }
-    return this._followedUsers;
-  },
+    followableOptions: {
+      foreignKey: 'followed_id'
+    },
 
-  parse: function (response) {
-    if (response.followed_users) {
-      this.followedUsers().set(response.followed_users);
-      delete response.followed_users;
-    }
-    return response;
-  },
-});
+    urlRoot: '/api/users',
+
+    parse: function (payload) {
+      this.parseFollow(payload);
+      return payload;
+    },
+  })
+);
