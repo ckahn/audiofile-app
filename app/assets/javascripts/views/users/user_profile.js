@@ -1,8 +1,26 @@
 AudioFileApp.Views.UserProfile = Backbone.CompositeView.extend({
   initialize: function () {
-    this.listenTo(this.model, 'change', this.render);
+    // this.listenTo(this.model, 'change', this.render);
+    // uploadedTracks.fetch();
+    var userInfoView = new AudioFileApp.Views.UserInfo({
+      model: this.model
+    });
+    this.addSubview('#user-info', userInfoView);
+
     uploadedTracks = new AudioFileApp.Collections.UploadedTracks();
-    uploadedTracks.fetch();
+    var uploadedTracksView = new AudioFileApp.Views.TracksList({
+      collection: uploadedTracks
+    });
+    this.addSubview('#user-uploaded-list', uploadedTracksView);
+
+    followers = this.model.followers();
+    var followersList = new AudioFileApp.Views.UsersList({
+      collection: followers
+    });
+    this.addSubview('#users-list', followersList);
+
+    var uploadedTracksView;
+    var followersView;
   },
 
   id: 'profile-view',
@@ -12,14 +30,11 @@ AudioFileApp.Views.UserProfile = Backbone.CompositeView.extend({
   render: function () {
     var content = this.template({ user: this.model });
     this.$el.html(content);
-    // var tracksIndexView = new AudioFileApp.Views.TracksIndex({
+    this.attachSubviews();
+    // var tracksList = new AudioFileApp.Views.TracksList({
     //   collection: uploadedTracks
-    // });
-    // this.$el.find('#user-uploaded-list').append(tracksIndexView.render().$el);
-    var tracksList = new AudioFileApp.Views.TracksList({
-      collection: uploadedTracks
-    })
-    this.$el.find('#user-uploaded-list').append(tracksList.render().$el);
+    // })
+    // this.$el.find('#user-uploaded-list').append(tracksList.render().$el);
     return this;
   },
 });

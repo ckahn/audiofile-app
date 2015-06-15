@@ -1,0 +1,10 @@
+<h3><%= user.escape('username') %></h3>
+<ul class="list-group">
+  <li class="list-group-item">
+    <img class="img-rounded" width="100px"
+         src="<%= user.escape('image') %>">
+    <p>San Francisco, CA</p>
+    <p><%= user.escape('num_followers') %> Followers</p>
+    <p><%= user.escape('num_likes') %> Likes</p>
+  </li>
+</ul>

@@ -8,12 +8,16 @@
         <%= user.escape('username') %>
       </a>
     </h4>
-    <p><small>San Francisco, CA</small></p>
+    <p>
+      <small>
+        San Francisco, CA<br>
+        <%= user.escape('num_follows') %> follower(s)
+      </small>
+    </p>
     <% if (user.follow().isNew()) { %>
       <button class="btn btn-sm">Follow</button>
     <% } else { %>
       <button class="btn btn-sm btn-success">Following</button>
     <% } %>
-    <p>num_follows: <%= user.escape('num_follows') %></p>
   </div>
 </div>

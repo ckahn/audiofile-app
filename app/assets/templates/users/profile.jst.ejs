@@ -1,16 +1,13 @@
-<div id="user-personal-info" class="col-md-2">
-  <img width="100px"
-       src="http://www.vincegolangco.com/wp-content/uploads/2010/12/batman-for-facebook.jpg">
-  <p><%= user.escape('username') %></p>
-  <p>Location</p>
-  <p># Followers</p>
+<div id="user-info" class="col-md-2">
+
 </div>
 
-<div id="user-uploaded-list" class="col-md-8">
+<div class="col-md-8">
   <h3>Uploaded Tracks</h3>
+  <div id="user-uploaded-list"></div>
 </div>
 
-<div id="user-social-info" class="col-md-2">
-  <p>Followed By...</p>
-  <p>???</p>
+<div id="followers-list" class="col-md-2">
+  <h3>Followers</h3>
+  <ul id="users-list" class="list-group"></ul>
 </div>
