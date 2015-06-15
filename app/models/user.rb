@@ -23,19 +23,26 @@ class User < ActiveRecord::Base
   )
 
   has_many(
-    :follows,
+    :follower_relationships,
+    class_name: "Follow",
     foreign_key: :follower_id
   )
 
   has_many(
+    :followed_relationships,
+    class_name: "Follow",
+    foreign_key: :followed_id
+  )
+
+  has_many(
     :followed_users,
-    through: :follows,
+    through: :follower_relationships,
     source: :followed
   )
 
   has_many(
     :followers,
-    through: :follows,
+    through: :followed_relationships,
     source: :follower
   )
 

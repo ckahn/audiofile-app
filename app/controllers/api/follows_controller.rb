@@ -4,7 +4,7 @@ module Api
     before_action :require_follow_owner!, only: [:destroy]
 
     def create
-      @follow = current_user.follows.new(like_params)
+      @follow = current_user.follower_relationships.new(like_params)
       if @follow.save
         render json: @follow
       else

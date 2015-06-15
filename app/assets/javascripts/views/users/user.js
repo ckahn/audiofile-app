@@ -1,6 +1,6 @@
 AudioFileApp.Views.User = Backbone.View.extend({
   initialize: function () {
-    // this.listenTo(this.model, 'change:num_follows', this.render);
+    this.listenTo(this.model, 'change:num_follows', this.render);
   },
 
   className: 'list-group-item',

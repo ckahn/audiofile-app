@@ -3,5 +3,5 @@ json.array! @user.followed_users do |followed|
   json.username followed.username
   json.image followed.image
   json.num_follows followed.followers.size
-  json.follow @user.follows.find_by(followed: followed.id)
+  json.follow @user.follower_relationships.find_by(followed: followed.id)
 end
