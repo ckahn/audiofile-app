@@ -1,0 +1,22 @@
+<div class="col-md-12">
+  <h3>Edit your info</h3>
+  <img src="<%= user.escape('image') %>"</img>
+  <form>
+    <div class="form-group">
+      <label>Username
+        <input type="text"
+               class="form-control"
+               name="user[username]"
+               value="<%= user.escape('username') %>">
+      <label>
+    </div>
+    <div class="form-group">
+      <label>Password
+        <input type="password"
+               class="form-control"
+               name="user[password]">
+      </label>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>
