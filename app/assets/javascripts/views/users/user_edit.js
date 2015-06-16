@@ -5,7 +5,8 @@ AudioFileApp.Views.UserEdit = Backbone.View.extend({
   },
 
   events: {
-    'submit form': 'update'
+    'click a#change-photo': 'updatePhoto',
+    'submit form': 'updateInfo'
   },
 
   template: JST['users/edit'],
@@ -16,7 +17,7 @@ AudioFileApp.Views.UserEdit = Backbone.View.extend({
     return this;
   },
 
-  update: function (event) {
+  updateInfo: function (event) {
     event.preventDefault();
     var params = $(event.currentTarget).serializeJSON();
     this.model.save(params, {
@@ -28,4 +29,17 @@ AudioFileApp.Views.UserEdit = Backbone.View.extend({
       }
     })
   },
+
+  updatePhoto: function (event) {
+    event.preventDefault();
+    var user = this.model;
+    cloudinary.openUploadWidget(CLOUDINARY_OPTIONS, function (error, result) {
+      var data = result[0];
+      user.save({ image: data.url }, {
+        success: function () {
+          console.log('SUCCESS');
+        }
+      });
+    });
+  }
 })
