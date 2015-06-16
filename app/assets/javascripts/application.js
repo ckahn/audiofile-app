@@ -14,6 +14,7 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require jquery.serializejson
+//= require cloudinary
 //= require turbolinks
 //= require underscore
 //= require backbone
