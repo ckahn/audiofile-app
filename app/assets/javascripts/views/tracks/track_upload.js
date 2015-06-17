@@ -4,21 +4,35 @@ AudioFileApp.Views.TrackUpload = Backbone.View.extend({
       uploader_id: CURRENT_USER_ID
     });
 
+    this.listenTo(this.track, 'sync', this.render);
+
     this.$uploadForm = $.cloudinary.unsigned_upload_tag(
       "notransforms",
       { cloud_name: "dhowpobqx" }
     );
 
-    this.$uploadForm.bind('fileuploadstart', function (e, data) {
+    this.$uploadForm.addClass('hide').attr('id', 'file');
+
+    this.$uploadForm.bind('cloudinarystart', function (e, data) {
+      this.fileName = this.$uploadForm.val().replace('C:\\fakepath\\', '');
+      $('#file-name').text(this.fileName);
       $('button').prop("disabled", true);
+      $('.progress-bar').addClass('active');
+      $('.progress').removeClass('hide');
+    }.bind(this));
+
+    this.$uploadForm.bind('cloudinaryprogress', function (e, data) {
+      this.progress = Math.round((data.loaded * 100) / data.total) + '%';
+      $('.progress-bar')
+        .attr('style', 'width: ' + this.progress)
+        .text(this.progress);
     }.bind(this));
 
     this.$uploadForm.bind('cloudinarydone', function (e, data) {
       this.track.set('source', data.result.url);
+      $('.progress-bar').removeClass('active').text('Done!');
       $('button').prop("disabled", false);
     }.bind(this));
-
-    this.listenTo(this.track, 'sync', this.render);
   },
 
   events: {
@@ -33,7 +47,7 @@ AudioFileApp.Views.TrackUpload = Backbone.View.extend({
   render: function () {
     var content = this.template({ track: this.track });
     this.$el.html(content);
-    this.$el.find('#select-file').html(this.$uploadForm);
+    this.$el.find('#select-file').prepend(this.$uploadForm);
     return this;
   },
 
@@ -55,7 +69,10 @@ AudioFileApp.Views.TrackUpload = Backbone.View.extend({
     this.track.set('title', title);
     this.track.save({}, {
       success: function () {
-        console.log('SUCCESS');
+        Backbone.history.navigate(
+          'profile',
+          { trigger: true }
+        )
       },
       error: function () {
         console.log('FAILURE');

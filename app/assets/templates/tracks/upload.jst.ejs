@@ -1,8 +1,17 @@
 <div class="col-md-4"></div>
 <div class="col-md-4">
-  <h3>Upload track</h3>
+  <h3>Upload song</h3>
   <form>
-    <div id="select-file" class="form-group"></div>
+    <div id="select-file" class="form-group">
+      <label class="btn btn-default btn-xs"
+      style="background-color: #d3d3d3;" for="file">Select song</label>
+      <span id="file-name">No file selected</span>
+    </div>
+    <div class="progress hide">
+      <div class="progress-bar progress-bar-striped" style="width: 0%;">
+        0%
+      </div>
+    </div>
     <div class="form-group">
       <label for="track[title]">Title</label>
         <input type="text"
