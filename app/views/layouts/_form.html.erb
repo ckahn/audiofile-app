@@ -3,7 +3,43 @@
 <% action_path, submit_label = users_url, "Sign Up" %>
 <% end %>
 
-<div class="jumbotron container">
+<div class="col-md-4">
+</div>
+<div class="col-md-4">
+  <div class="col-md-12">
+  <%= image_tag("AudioFile-logo.png", height: "250px:", alt: "logo", class: "center-block") %>
+  <form action="<%= action_path %>" method="post">
+    <input type="hidden" name="authenticity_token"
+           value="<%= form_authenticity_token %>">
+    <div class="form-group">
+      <label class="sr-only" for="username-field">User name</label>
+      <input type="text" name="user[username]" value="<%= @user.username %>"
+             class="form-control" id="username-field" placeholder="Username">
+    </div>
+    <div class="form-group">
+      <label class="sr-only" for="password-field">Password</label>
+      <input type="password" name="user[password]" class="form-control"
+             id="password-field" placeholder="Password">
+    </div>
+    <% if flash[:errors] %>
+      <ul class="list-group">
+        <% flash[:errors].each do |error| %>
+        <li class="list-group-item list-group-item-danger"><%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    <button type="submit" class="btn btn-default"><%= submit_label %></button>
+  </form>
+
+  <% if form_type == :new_user %>
+    <p style="margin-top: 10px;"> Already have an account? <a href="<%= new_session_url %>">Log in</a>. </p>
+  <% else %>
+    <p style="margin-top: 10px;"> Don't have an account? <a href="<%= new_user_url %>">Create one</a> or <a href="#">use the guest account</a>. </p>
+  <% end %>
+
+<div class="col-md-4"></div>
+
+<!-- <div class="jumbotron container">
   <%= image_tag("AudioFile-logo.png", :alt => "logo") %>
   <h1>Welcome to AudioFile</h1>
   <h2>
@@ -41,4 +77,4 @@
     <br> [For now, use 'User-1' and 'password'.]
   </p>
   <% end %>
-</div>
+</div> -->
