@@ -19,13 +19,19 @@ AudioFileApp.Views.UserEdit = Backbone.View.extend({
 
   updateInfo: function (event) {
     event.preventDefault();
+    $('p.text-danger').remove();
     var params = $(event.currentTarget).serializeJSON();
     this.model.save(params, {
       success: function () {
-        console.log('SAVED');
+        Backbone.history.navigate(
+          'profile',
+          { trigger: true }
+        )
       },
-      error: function () {
-        console.log('NOT SAVED');
+      error: function (model, response) {
+        $('button.btn').before('<p class=text-danger>' +
+          response.responseJSON.toString() +
+          '</p>');
       }
     })
   },

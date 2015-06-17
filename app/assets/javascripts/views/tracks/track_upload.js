@@ -64,6 +64,7 @@ AudioFileApp.Views.TrackUpload = Backbone.View.extend({
 
   uploadTrack: function (e) {
     e.preventDefault();
+    $('p.text-danger').remove();
     var title = $(e.currentTarget).serializeJSON().track.title;
     this.track.set('image', this.imageUrl);
     this.track.set('title', title);
@@ -74,8 +75,10 @@ AudioFileApp.Views.TrackUpload = Backbone.View.extend({
           { trigger: true }
         )
       },
-      error: function () {
-        console.log('FAILURE');
+      error: function (model, response) {
+        $('button.btn').before('<p class=text-danger>' +
+          response.responseJSON.toString() +
+          '</p>');
       }
     });
   },

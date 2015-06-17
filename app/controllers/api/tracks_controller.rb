@@ -7,7 +7,7 @@ module Api
       if track.save
         render json: track
       else
-        render json: track.errors.full_messages
+        render json: track.errors.full_messages, status: :unprocessable_entity
       end
     end
 
