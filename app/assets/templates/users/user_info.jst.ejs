@@ -1,12 +1,14 @@
 <h3><%= user.escape('username') %></h3>
-<ul class="list-group">
-  <li class="list-group-item">
-    <img class="img-rounded" width="100px" src="<%= user.escape('image') %>">
+<div class="thumbnail">
+  <img class="img-rounded img-responsive" src="<%= user.escape('image') %>">
+  <div class="caption">
     <p>San Francisco, CA</p>
-    <p><%= user.escape('num_followers') %> Followers</p>
-    <p><%= user.escape('num_likes') %> Likes</p>
-    <% if (user.id == CURRENT_USER_ID) { %>
-      <p><a href="#users/<%= user.id %>/edit">Edit</a></p>
-    <% } %>
-  </li>
-</ul>
+    <p><span class="glyphicon glyphicon-user"></span>
+      <%= user.escape('num_followers') %> &nbsp;&nbsp;
+    <span class="glyphicon glyphicon-star"></span>
+      <%= user.escape('num_likes') %></p>
+      <% if (user.id == CURRENT_USER_ID) { %>
+        <button class="btn btn-default btn-sm">Edit</button>
+      <% } %>
+  </div>
+</div>

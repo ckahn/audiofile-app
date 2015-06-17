@@ -3,6 +3,18 @@ AudioFileApp.Views.UserInfo = Backbone.CompositeView.extend({
     this.listenTo(this.model, 'sync', this.render);
   },
 
+  edit: function (e) {
+    e.preventDefault();
+    Backbone.history.navigate(
+      '#users/' + this.model.id + '/edit',
+      { trigger: true }
+    );
+  },
+
+  events: {
+    'click button': 'edit'
+  },
+
   template: JST['users/user_info'],
 
   render: function () {

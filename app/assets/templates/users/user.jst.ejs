@@ -1,6 +1,6 @@
 <div class="media">
   <div class="media-left media-middle">
-      <img class="media-object" width="100px" height="100px" src="<%= user.escape('image') %>" alt="">
+      <img class="img-rounded media-object" width="110" height="110" src="<%= user.escape('image') %>" alt="">
   </div>
   <div class="media-body">
     <h4>
@@ -11,7 +11,8 @@
     <p>
       <small>
         San Francisco, CA<br>
-        <%= user.escape('num_follows') %> follower(s)
+        <span class="glyphicon glyphicon-user"></span>
+        <%= user.escape('num_follows') %>
       </small>
     </p>
     <% if (user.follow().isNew()) { %>

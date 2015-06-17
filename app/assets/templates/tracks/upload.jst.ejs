@@ -1,8 +1,6 @@
 <div class="col-md-4"></div>
 <div class="col-md-4">
   <h3>Upload track</h3>
-  <img width="100" height="100" src="<%= track.escape('image') %>">
-  <p><a id="change-photo" href="#">Add photo...</a></p>
   <form>
     <div id="select-file" class="form-group"></div>
     <div class="form-group">
@@ -13,6 +11,8 @@
                name="track[title]"
                value="<%= track.escape('title') %>">
     </div>
+    <img src="<%= track.escape('image') %>">
+    <p><a id="change-photo" href="#">Add photo...</a></p>
     <button type="submit" class="btn btn-default">Submit</button>
   </form>
 </div>

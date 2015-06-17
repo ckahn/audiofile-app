@@ -6,6 +6,8 @@ AudioFileApp.Views.Home = Backbone.View.extend({
     this.exploreView = new AudioFileApp.Views.HomeExplore();
   },
 
+  className: 'container',
+
   events: {
     'click #explore-tab': 'showExplore',
     'click #stream-tab': 'showStream'

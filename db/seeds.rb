@@ -2,7 +2,7 @@
   user = User.new(
     username: "User-#{i+1}",
     password: 'password',
-    image: 'http://lorempixel.com/100/100/people/'
+    image: 'http://lorempixel.com/200/200/people/'
   )
 
   user.save
@@ -12,7 +12,7 @@
       title: "Uploaded by #{user.username}",
       source: 'http://res.cloudinary.com/dhowpobqx/video/' +
         'upload/v1434054398/1._R_A_G_E_-_QuadkilleR_2013_mq669p.mp3',
-      image: "http://lorempixel.com/100/100/"
+      image: "http://lorempixel.com/200/200/"
     )
     user.uploaded_tracks << track
   end
@@ -23,7 +23,7 @@
       source: 'http://res.cloudinary.com/dhowpobqx/video/' +
         'upload/v1434054398/1._R_A_G_E_-_QuadkilleR_2013_mq669p.mp3',
       uploader_id: 2,
-      image: "http://lorempixel.com/100/100/"
+      image: "http://lorempixel.com/200/200/"
     )
     user.liked_tracks << track
   end
