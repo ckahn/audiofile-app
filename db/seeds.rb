@@ -11,7 +11,7 @@
     track = Track.new(
       title: "Uploaded by #{user.username}",
       source: 'http://res.cloudinary.com/dhowpobqx/video/upload/' +
-        'v1434586474/tihhwcq5eq1vh7uqzw0f.mp3',
+        'v1434605298/Mouthful_Of_Diamonds_p3qdq3.mp3',
       image: "http://lorempixel.com/200/200/abstract/#{rand(10)}"
     )
     user.uploaded_tracks << track
@@ -20,8 +20,8 @@
   2.times do |j|
     track = Track.new(
       title: "Liked by #{user.username}",
-      source: 'http://res.cloudinary.com/dhowpobqx/video/' +
-        'upload/v1434054398/1._R_A_G_E_-_QuadkilleR_2013_mq669p.mp3',
+      source: 'http://res.cloudinary.com/dhowpobqx/video/upload/' +
+        'v1434605298/Mouthful_Of_Diamonds_p3qdq3.mp3',
       uploader_id: 2,
       image: "http://lorempixel.com/200/200/abstract/#{rand(10)}"
     )
