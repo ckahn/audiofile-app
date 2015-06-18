@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     get '/users/:id/uploaded' => 'users#uploaded'
   end
 
+  get '/session/guest/' => 'sessions#guest'
   resource :session, only: [:create, :destroy, :new]
   resources :users, only: [:create, :new]
 end
