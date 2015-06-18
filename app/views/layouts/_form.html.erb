@@ -32,7 +32,7 @@
 
   <p style="margin-top: 10px;">
     <% if form_type == :new_user %>
-      Already have an account? <a href="<%= new_session_url %>">Log in</a>.
+      Don't need to create an account? <a href="<%= new_session_url %>">Log in</a>.
     <% else %>
       Don't have an account? <a href="<%= new_user_url %>">Create one</a> or
       <a href="<%= session_guest_url %>">use the guest account</a>.
