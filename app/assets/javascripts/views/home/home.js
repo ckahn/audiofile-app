@@ -1,9 +1,7 @@
 AudioFileApp.Views.Home = Backbone.View.extend({
   initialize: function () {
-    this.streamView = new AudioFileApp.Views.HomeStream({
-      collection: new AudioFileApp.Collections.TracksStream()
-    });
     this.exploreView = new AudioFileApp.Views.HomeExplore();
+    this.streamView = new AudioFileApp.Views.HomeStream();
   },
 
   className: 'container',
@@ -26,6 +24,8 @@ AudioFileApp.Views.Home = Backbone.View.extend({
 
   showExplore: function (event) {
     event.preventDefault();
+    this.exploreView = new AudioFileApp.Views.HomeExplore();
+    this.streamView.remove();
     $target = event.currentTarget;
     if (!$target.classList.contains('active')) {
       $('#explore-tab').addClass('active');
@@ -37,6 +37,8 @@ AudioFileApp.Views.Home = Backbone.View.extend({
 
   showStream: function (event) {
     event.preventDefault();
+    this.streamView = new AudioFileApp.Views.HomeStream();
+    this.exploreView.remove();
     $target = event.currentTarget;
     if (!$target.classList.contains('active')) {
       $('#explore-tab').removeClass('active');

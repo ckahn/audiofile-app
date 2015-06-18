@@ -1,34 +1,23 @@
 AudioFileApp.Views.HomeExplore = Backbone.CompositeView.extend({
   initialize: function () {
+    var allTracks = new AudioFileApp.Collections.TracksIndex();
+    allTracks.fetch();
     var tracksIndexView = new AudioFileApp.Views.TracksList({
-      collection: new AudioFileApp.Collections.TracksIndex()
+      collection: allTracks
     });
-
     this.addSubview("#tracks-index", tracksIndexView);
-
 
     allUsers = new AudioFileApp.Collections.Users()
     allUsers.fetch();
     var usersIndexView = new AudioFileApp.Views.UsersList({
       collection: allUsers
     });
-
     this.addSubview("#all-users", usersIndexView);
-
-    // this.listenTo(this.collection, 'add', this.addTrackSubview);
   },
 
   id: 'explore-view',
 
   template: JST['home/explore'],
-
-  // addTrackSubview: function (track) {
-  //   var trackSubview = new AudioFileApp.Views.Track({
-  //     model: track,
-  //     collection: this.collection
-  //   });
-  //   this.addSubview("ul#tracks-list", trackSubview);
-  // },
 
   render: function () {
     var content = this.template();
