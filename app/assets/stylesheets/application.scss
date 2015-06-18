@@ -21,3 +21,44 @@ body {
  padding: 40px 15px;
  text-align: center;
 }
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+.btn-circle.btn-lg {
+  width: 50px;
+  height: 50px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 25px;
+}
+
+.track-info {
+  margin-left: 57px;
+}
+
+.track-item-body {
+  position: relative;
+}
+
+#like-widget {
+  position: absolute;
+  bottom: 0px;
+}
+
+.progress.progress-song {
+  margin-top: 14px;
+  height: 3px;
+}
+
+#audio-player {
+  position: fixed;
+  bottom: 0px;
+}

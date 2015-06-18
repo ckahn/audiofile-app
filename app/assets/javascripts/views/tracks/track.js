@@ -14,7 +14,8 @@ AudioFileApp.Views.Track = Backbone.CompositeView.extend({
   className: 'list-group-item',
 
   events: {
-    'click #like-widget': 'toggleLike'
+    'click #like-widget': 'toggleLike',
+    'click button': 'test',
   },
 
   tagName: 'li',
@@ -26,6 +27,14 @@ AudioFileApp.Views.Track = Backbone.CompositeView.extend({
     this.$el.html(content);
     this.attachSubviews();
     return this;
+  },
+
+  test: function () {
+    this.$el.find('.progress').removeClass('hide');
+    this.$el.find('.glyphicon-play')
+      .removeClass('glyphicon-play')
+      .addClass('glyphicon-pause');
+    $('#audio-player').removeClass('hide');
   },
 
   toggleLike: function (event) {
