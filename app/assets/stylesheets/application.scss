@@ -14,12 +14,26 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
-body {
- padding-top: 50px;
+ body {
+  padding-top: 50px;
+ }
+ .starter-template {
+  padding: 40px 15px;
+  text-align: center;
+ }
+
+.background {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-image: url('http://cdn02.masterstudies.com/element_db/52/5261_Electronics_Music_Production_pic_1.jpg');
+  position: fixed;
+  top: 0;
 }
-.starter-template {
- padding: 40px 15px;
- text-align: center;
+
+.login {
+  background-color: rgba(255, 255, 255, 0.87);
+  margin-top: 29px;
 }
 
 .btn-circle {
