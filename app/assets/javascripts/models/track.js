@@ -1,5 +1,9 @@
 AudioFileApp.Models.Track = Backbone.Model.extend(
   _.extend({}, AudioFileApp.Mixins.Likable, {
+    initialize() {
+      this.set('isPlaying', 'false');
+    },
+
     urlRoot: 'api/tracks',
 
     likableOptions: {
@@ -12,3 +16,5 @@ AudioFileApp.Models.Track = Backbone.Model.extend(
     }
   })
 );
+
+AudioFileApp.Models.currentTrack = new AudioFileApp.Models.Track({ id: null });
