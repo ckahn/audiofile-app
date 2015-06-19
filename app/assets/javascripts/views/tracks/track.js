@@ -35,6 +35,10 @@ AudioFileApp.Views.Track = Backbone.CompositeView.extend({
       .removeClass('glyphicon-play')
       .addClass('glyphicon-pause');
     $('#audio-player').removeClass('hide');
+    // debugger;
+    $('#audio-player audio')
+      .attr('src', this.model.escape('source'))[0]
+      .play();
   },
 
   toggleLike: function (event) {
