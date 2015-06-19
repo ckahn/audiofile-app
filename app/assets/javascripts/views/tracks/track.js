@@ -68,7 +68,7 @@ AudioFileApp.Views.Track = Backbone.CompositeView.extend({
     this.removePlayDisplay();
   },
 
-  toggleDisplay() {
+  toggleDisplay: function () {
     this.$el.toggleClass('playing');
     this.$el.find('.progress').toggleClass('hidden');
     this.$el.find('#player-button-icon')
