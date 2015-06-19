@@ -47,6 +47,7 @@ AudioFileApp.Views.Track = Backbone.CompositeView.extend({
 
   removePlayDisplay: function () {
     this.stopListening(AudioFileApp.Models.currentTrack);
+    AudioFileApp.Models.currentTrack.set('id', null);
     this.toggleDisplay();
     this.$el.find('.progress-bar').attr('style', 'width: 0%');
   },
