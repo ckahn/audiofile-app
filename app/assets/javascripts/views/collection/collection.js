@@ -21,8 +21,6 @@ AudioFileApp.Views.Collection = Backbone.CompositeView.extend({
     // }.bind(this));
   },
 
-  className: 'container',
-
   id: 'collection-view',
 
   template: JST['collection/collection'],

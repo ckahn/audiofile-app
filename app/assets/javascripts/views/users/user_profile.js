@@ -23,8 +23,6 @@ AudioFileApp.Views.UserProfile = Backbone.CompositeView.extend({
     var followersView;
   },
 
-  className: 'container',
-
   id: 'profile-view',
 
   template: JST['users/profile'],
