@@ -47,7 +47,6 @@ AudioFileApp.Views.Track = Backbone.CompositeView.extend({
 
   removePlayDisplay: function () {
     this.stopListening(AudioFileApp.Models.currentTrack);
-    AudioFileApp.Models.currentTrack.set('id', null);
     this.toggleDisplay();
     this.$el.find('.progress-bar').attr('style', 'width: 0%');
   },
@@ -56,6 +55,7 @@ AudioFileApp.Views.Track = Backbone.CompositeView.extend({
     var content = this.template({ track: this.model });
     this.$el.html(content);
     if (this.isPlaying()) {
+      console.log('ISPLAYING');
       this.addPlayDisplay();
     }
     this.attachSubviews();
@@ -63,6 +63,7 @@ AudioFileApp.Views.Track = Backbone.CompositeView.extend({
   },
 
   stopPlayingSong: function () {
+    AudioFileApp.Models.currentTrack.set('id', null);
     $('#audio-player').addClass('hidden');
     $('#audio-player audio')[0].pause();
     clearInterval(this.playIntId);
