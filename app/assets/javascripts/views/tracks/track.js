@@ -55,7 +55,6 @@ AudioFileApp.Views.Track = Backbone.CompositeView.extend({
     var content = this.template({ track: this.model });
     this.$el.html(content);
     if (this.isPlaying()) {
-      console.log('ISPLAYING');
       this.addPlayDisplay();
     }
     this.attachSubviews();
