@@ -4,9 +4,13 @@ AudioFileApp.Views.UserEdit = Backbone.View.extend({
     this.listenTo(this.model, 'sync', this.render);
   },
 
+  className: 'modal fade',
+
+  id: 'user-edit-view',
+
   events: {
     'click a#change-photo': 'updatePhoto',
-    'submit form': 'updateInfo'
+    'click #save-button': 'updateInfo'
   },
 
   template: JST['users/edit'],
@@ -14,22 +18,28 @@ AudioFileApp.Views.UserEdit = Backbone.View.extend({
   render: function () {
     var content = this.template({ user: this.model });
     this.$el.html(content);
+
+    this.$el.on('hidden.bs.modal', function () {
+      this.$el.remove();
+    }.bind(this));
+
     return this;
   },
 
   updateInfo: function (event) {
     event.preventDefault();
     $('p.text-danger').remove();
-    var params = $(event.currentTarget).serializeJSON();
+    var params = this.$el.find('form').serializeJSON();
     this.model.save(params, {
       success: function () {
+        $('#user-edit-view').modal('hide');
         Backbone.history.navigate(
           'profile',
           { trigger: true }
         )
       },
       error: function (model, response) {
-        $('button.btn').before('<p class=text-danger>' +
+        $('div.modal-footer').prepend('<p class=text-danger>' +
           response.responseJSON.toString() +
           '</p>');
       }
