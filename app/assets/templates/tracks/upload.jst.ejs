@@ -22,20 +22,19 @@
         <div class="form-group">
           <label for="track[title]">Title</label>
           <input type="text"
-          id="track[title]"
-          class="form-control"
-          name="track[title]"
-          value="<%= track.escape('title') %>">
+                 id="track[title]"
+                 class="form-control"
+                 name="track[title]"
+                 value="<%= track.escape('title') %>">
         </div>
-        <img src="<%= track.escape('image') %>">
+        <img id="track-photo" src="<%= track.escape('image') %>">
         <p><a id="change-photo" href="#">Add photo...</a></p>
-        <button type="submit" class="btn btn-default">Submit</button>
       </form>
 
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      <button type="button" class="btn btn-primary">Save changes</button>
+      <button id="save-button" type="button" class="btn btn-primary">Save changes</button>
+      <button id="close-button" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
     </div>
-  </div><!-- /.modal-content -->
-</div><!-- /.modal-dialog -->
+  </div>
+</div>

@@ -16,9 +16,13 @@ AudioFileApp.Views.TrackUpload = Backbone.View.extend({
     this.$uploadForm.bind('cloudinarystart', function (e, data) {
       this.fileName = this.$uploadForm.val().replace('C:\\fakepath\\', '');
       $('#file-name').text(this.fileName);
-      $('button').prop("disabled", true);
+      $('button#save-button').prop("disabled", true);
       $('.progress-bar').addClass('active');
       $('.progress').removeClass('hide');
+    }.bind(this));
+
+    this.$uploadForm.bind('fileuploadadd', function(e, data) {
+      this.uploadProcess = data.submit();
     }.bind(this));
 
     this.$uploadForm.bind('cloudinaryprogress', function (e, data) {
@@ -38,7 +42,7 @@ AudioFileApp.Views.TrackUpload = Backbone.View.extend({
   className: 'modal fade',
 
   events: {
-    'submit form': 'uploadTrack',
+    'click #save-button': 'uploadTrack',
     'click a#change-photo': 'updatePhoto'
   },
 
@@ -50,6 +54,15 @@ AudioFileApp.Views.TrackUpload = Backbone.View.extend({
     var content = this.template({ track: this.track });
     this.$el.html(content);
     this.$el.find('#select-file').prepend(this.$uploadForm);
+    
+    this.$el.on('hidden.bs.modal', function () {
+      if (this.uploadProcess) {
+        this.uploadProcess.abort();
+        this.uploadProcess = null;
+      }
+      this.$el.remove();
+    }.bind(this));
+
     return this;
   },
 
@@ -60,25 +73,26 @@ AudioFileApp.Views.TrackUpload = Backbone.View.extend({
     cloudinary.openUploadWidget(CLOUDINARY_OPTIONS, function (error, result) {
       var data = result[0];
       form.imageUrl = data.url;
-      $('img').attr('src', form.imageUrl);
+      $('img#track-photo').attr('src', form.imageUrl);
     });
   },
 
   uploadTrack: function (e) {
     e.preventDefault();
     $('p.text-danger').remove();
-    var title = $(e.currentTarget).serializeJSON().track.title;
+    var title = this.$el.find('form').serializeJSON().track.title;
     this.track.set('image', this.imageUrl);
     this.track.set('title', title);
     this.track.save({}, {
       success: function () {
+        $('#upload-view').modal('hide');
         Backbone.history.navigate(
           'profile',
           { trigger: true }
         )
       },
       error: function (model, response) {
-        $('button.btn').before('<p class=text-danger>' +
+        $('div.modal-footer').prepend('<p class=text-danger>' +
           response.responseJSON.toString() +
           '</p>');
       }
