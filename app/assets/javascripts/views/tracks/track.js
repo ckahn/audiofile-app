@@ -23,7 +23,7 @@ AudioFileApp.Views.Track = Backbone.CompositeView.extend({
     $('#song-uploader-sm a')
       .attr('href', this.model.escape('uploader_link'))
       .text(this.model.escape('uploader_name'));
-    $('#song-title-sm').text(this.model.escape('title'));
+    $('#song-title-sm').text(this.model.get('title'));
     $('#audio-player').removeClass('hidden');
     this.toggleDisplay();
     AudioFileApp.Models.currentTrack.set('id', this.model.id);
