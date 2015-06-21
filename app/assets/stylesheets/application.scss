@@ -14,13 +14,13 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
- body {
+body {
   padding-top: 50px;
- }
- .starter-template {
+}
+.starter-template {
   padding: 40px 15px;
   text-align: center;
- }
+}
 
 .background {
   height: 100%;
@@ -89,16 +89,54 @@
 
 #audio-player {
   position: fixed;
-  left: 0px;
-  width: 100%;
+  left: CALC(50% - 300px);
+  width: 600px;
+  height: 45px;
   bottom: 0px;
-  background-color: rgba(0, 0, 0, 0.62);
+  background-color: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgb(221, 221, 221);
+  padding-left: 30px;
+}
+
+#audio-player .player-container {
+  margin-top: 7px;
+  position: relative;
+  left: CALC(50% - 300px);
+}
+
+#audio-player .player-container .song-text-details {
+  display: inline;
+}
+
+#audio-player .song-info {
+  position: relative;
+  left: 8px;
+  bottom: 9px;
+  display: inline;
+}
+
+#audio-player #song-uploader-sm {
+  font-size: 8pt;
+  position: absolute;
+  top: -11px;
+}
+
+#audio-player #song-title-sm {
+  position: relative;
+  top: 9px;
+  font-size: 12pt;
+}
+
+#audio-player #song-icon {
+  width: 32px;
+  height: 32px;
+  display: inline;
+  margin-right: 6px;
+  margin-bottom: 4px;
 }
 
 #audio-player audio {
   width: 300px;
-  position: relative;
-  left: CALC(50% - 150px);
 }
 
 #tracks-list .list-group-item.playing {
