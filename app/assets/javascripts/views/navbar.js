@@ -5,7 +5,8 @@ AudioFileApp.Views.NavbarView = Backbone.View.extend({
 
   events: {
     'click #navbar li': 'makeCurrentActive',
-    'click a.navbar-brand': 'makeHomeActive'
+    'click a.navbar-brand': 'makeHomeActive',
+    'click li#upload': 'upload'
   },
 
   template: JST['navbar'],
@@ -24,5 +25,13 @@ AudioFileApp.Views.NavbarView = Backbone.View.extend({
     var content = this.template();
     this.$el.html(content);
     return this;
+  },
+
+  upload: function (e) {
+    e.preventDefault();
+    var $uploadView = new AudioFileApp.Views.TrackUpload();
+    var $form = $uploadView.render().$el;
+    $form.appendTo('body');
+    $form.modal('show');
   }
 })

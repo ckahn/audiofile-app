@@ -35,6 +35,8 @@ AudioFileApp.Views.TrackUpload = Backbone.View.extend({
     }.bind(this));
   },
 
+  className: 'modal fade',
+
   events: {
     'submit form': 'uploadTrack',
     'click a#change-photo': 'updatePhoto'
