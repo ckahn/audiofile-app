@@ -1,8 +1,8 @@
 <div>
   <% if (like.isNew()) { %>
-    <span class="glyphicon glyphicon-star-empty"></span>
+    <span class="glyphicon glyphicon-star not-liked"></span>
   <% } else { %>
-    <span class="glyphicon glyphicon-star"></span>
+    <span class="glyphicon glyphicon-star liked"></span>
   <% } %>
-  <%= track.escape("num_likes") %>
+  <span class="num-likes"><%= track.escape("num_likes") %></span>
 </div>
