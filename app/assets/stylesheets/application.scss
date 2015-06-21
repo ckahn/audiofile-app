@@ -141,8 +141,18 @@ body {
   width: 300px;
 }
 
+#tracks-list .list-group-item {
+  transition: background-color 1s;
+}
+
 #tracks-list .list-group-item.playing {
   background-color: rgba(33, 79, 118, 0.07);
+}
+
+#tracks-list .list-group-item img {
+  height: 80px;
+  width: 80px;
+  transition: height 1s, width 1s;
 }
 
 #tracks-list .list-group-item.playing img {
