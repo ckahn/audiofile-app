@@ -34,16 +34,28 @@ AudioFileApp.Views.HomeExplore = Backbone.CompositeView.extend({
 
    sortTrackByRecent: function (e) {
      e.preventDefault();
+     $('#track-sort-option').text('recent');
      console.log('SORT BY RECENT');
    },
 
    sortTrackByLikes: function (e) {
      e.preventDefault();
-     console.log('SORT BY LIKES');
+     $('#track-sort-option').text('likes');
+     this.allTracks.comparator = function (track1, track2) {
+       if (track1.get('num_likes') > track2.get('num_likes')) {
+         return -1;
+       } else if (track1.get('num_likes') < track2.get('num_likes')) {
+         return 1;
+       } else {
+         return 0;
+       }
+     };
+     this.allTracks.sort();
    },
 
    sortTrackByTitle: function (e) {
      e.preventDefault();
+     $('#track-sort-option').text('title');
      this.allTracks.comparator = 'title';
      this.allTracks.sort();
    },
