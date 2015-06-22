@@ -7,6 +7,7 @@ end
 bjork = User.new(
   username: 'Bjork',
   password: pw,
+  location: 'Reykjavík, Iceland',
   image: 'https://33.media.tumblr.com/avatar_d6dea210f630_128.png'
 )
 
@@ -28,6 +29,7 @@ bjork.save
 radiohead = User.new(
   username: 'Radiohead',
   password: pw,
+  location: 'Oxfordshire, England',
   image: 'http://33.media.tumblr.com/avatar_ef7954350373_128.png'
 )
 
@@ -49,6 +51,7 @@ radiohead.save
 phantogram = User.new(
   username: 'Phantogram',
   password: pw,
+  location: 'Greenwich, New York',
   image: 'http://www.archasung.com/wp-content/uploads/phantogram-chalkboard.jpg'
 )
 
@@ -69,6 +72,7 @@ phantogram.save
 aphex_twin = User.new(
   username: 'Aphex Twin',
   password: pw,
+  location: 'Cornwall, United Kingdom',
   image: 'http://i.guim.co.uk/static/w-620/h--/q-95/sys-images/' +
     'Guardian/Pix/arts/2001/10/04/aphex1.jpg'
 )
@@ -91,6 +95,7 @@ aphex_twin.save
 massive_attack = User.new(
   username: 'Massive Attack',
   password: pw,
+  location: 'Bristol, England',
   image: 'http://41.media.tumblr.com/tumblr_lsgc67DqA21qbmla3o1_500.png'
 )
 massive_attack.save

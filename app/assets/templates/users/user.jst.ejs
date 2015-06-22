@@ -10,7 +10,7 @@
     </h4>
     <p>
       <small>
-        San Francisco, CA<br>
+        <%= user.escape('location') %><br>
         <span class="glyphicon glyphicon-user"></span>
         <%= user.escape('num_follows') %>
       </small>

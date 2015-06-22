@@ -1,5 +1,6 @@
 json.array! @user.followed_users do |followed|
   json.id followed.id
+  json.location followed.location
   json.username followed.username
   json.image followed.image
   json.num_follows followed.followers.size
