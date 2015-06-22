@@ -4,9 +4,7 @@
 <% end %>
 
 <div class="background">
-  <div class="col-md-4"></div>
-
-  <div class="col-md-4 login">
+  <div class="login">
     <%= image_tag("AudioFile-logo.png", height: "250px:", alt: "logo", class: "center-block") %>
     <form action="<%= action_path %>" method="post">
       <input type="hidden" name="authenticity_token"
@@ -40,6 +38,4 @@
       <% end %>
     </p>
   </div>
-
-  <div class="col-md-4"></div>
 </div>

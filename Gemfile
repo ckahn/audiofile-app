@@ -29,6 +29,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'newrelic_rpm'
 gem 'figaro'
 gem 'bootstrap-sass', '~> 3.3.4'
+gem 'bootswatch-rails'
 gem 'backbone-on-rails'
 gem 'cloudinary'
 

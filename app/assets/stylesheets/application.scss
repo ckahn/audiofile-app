@@ -16,6 +16,7 @@
 
 body {
   padding-top: 50px;
+  padding-bottom: 43px;
 }
 .starter-template {
   padding: 40px 15px;
@@ -32,8 +33,13 @@ body {
 }
 
 .login {
-  background-color: rgba(255, 255, 255, 0.87);
+  background-color: rgba(255,255,255,0.87);
   top: CALC(50% - 211px);
+  left: CALC(50% - 217px);
+  width: 434px;
+  padding: 20px;
+  position: fixed;
+  border-radius: 5px;
 }
 
 .btn-circle {
