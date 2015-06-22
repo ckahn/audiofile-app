@@ -7,6 +7,8 @@ AudioFileApp.Views.Track = Backbone.CompositeView.extend({
     'click button.stop': 'stopPlayingSong'
   },
 
+  id: 'track-view',
+
   tagName: 'li',
 
   template: JST['tracks/track'],

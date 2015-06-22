@@ -168,7 +168,14 @@ body {
 }
 
 #tracks-list .list-group-item {
+  position: relative;
   transition: background-color 1s;
+}
+
+#tracks-list .list-group-item .track-timestamp {
+  position: absolute;
+  top: 9px;
+  right: 15px;
 }
 
 #tracks-list .list-group-item.playing {
