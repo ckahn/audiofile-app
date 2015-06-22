@@ -3,7 +3,7 @@ json.uploaded_tracks @user.uploaded_tracks, :title, :source
 json.liked_tracks @user.liked_tracks, :id, :title, :source
 num_likes = 0
 @user.uploaded_tracks.each do |track|
-  num_likes += 1 if track.likes.size > 0
+  num_likes += track.likes.size
 end
 json.num_likes num_likes
 json.followed_users @user.followed_users, :id, :username, :location, :image

@@ -1,6 +1,7 @@
 json.array! @users do |user|
   json.id user.id
   json.username user.username
+  json.num_likes user.likes.size
   json.location user.location
   json.image user.image
   json.num_follows user.followers.size

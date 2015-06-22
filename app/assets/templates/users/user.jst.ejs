@@ -1,6 +1,6 @@
 <div class="media">
   <div class="media-left media-middle">
-      <img class="img-rounded media-object" width="110" height="110" src="<%= user.escape('image') %>" alt="">
+      <img class="img-circle media-object" width="110" height="110" src="<%= user.escape('image') %>" alt="">
   </div>
   <div class="media-body">
     <h4>
@@ -10,9 +10,11 @@
     </h4>
     <p>
       <small>
-        <%= user.escape('location') %><br>
-        <span class="glyphicon glyphicon-user"></span>
-        <%= user.escape('num_follows') %>
+      <%= user.escape('location') %><br>
+      <p><span class="glyphicon glyphicon-user"></span>
+      <%= user.escape('num_follows') %> &nbsp;&nbsp;
+      <span class="glyphicon glyphicon-star"></span>
+      <%= user.escape('num_likes') %></p>
       </small>
     </p>
     <% if (user.follow().isNew()) { %>

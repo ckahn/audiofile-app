@@ -1,11 +1,12 @@
-<% action_path, submit_label = session_url, "Sign In" %>
-<% if form_type == :new_user %>
-<% action_path, submit_label = users_url, "Sign Up" %>
+<% action_path, submit_label, div_class = session_url, "Log In", "login" %>
+<% if form_type === :new_user %>
+<% action_path, submit_label, div_class = users_url, "Sign Up", "signup" %>
 <% end %>
 
 <div class="background">
-  <div class="login">
+  <div class="<%= div_class %>">
     <%= image_tag("AudioFile-logo.png", height: "250px:", alt: "logo", class: "center-block") %>
+    <h3 id="logo-subtitle">A place to share your music</h3>
     <form action="<%= action_path %>" method="post">
       <input type="hidden" name="authenticity_token"
              value="<%= form_authenticity_token %>">
@@ -14,11 +15,24 @@
         <input type="text" name="user[username]" value="<%= @user.username %>"
                class="form-control" id="username-field" placeholder="Username">
       </div>
+
       <div class="form-group">
         <label class="sr-only" for="password-field">Password</label>
         <input type="password" name="user[password]" class="form-control"
                id="password-field" placeholder="Password">
       </div>
+
+      <% if form_type === :new_user %>
+        <div class="form-group">
+          <label class="sr-only" for="location-field">Location</label>
+          <input type="location" name="user[location]" class="form-control"
+                 id="location-field" placeholder="Location">
+        </div>
+        <input type="hidden"
+               name="user[image]"
+               value="<%= image_url('default_avatar_photo.jpg') %>">
+      <% end %>
+
       <% if flash[:errors] %>
         <ul class="list-group">
           <% flash[:errors].each do |error| %>
@@ -30,7 +44,7 @@
     </form>
 
     <p style="margin-top: 10px;">
-      <% if form_type == :new_user %>
+      <% if form_type === :new_user %>
           Don't need to create an account? <a href="<%= new_session_url %>">Log in</a>.
       <% else %>
         Don't have an account? <a href="<%= new_user_url %>">Create one</a> or
