@@ -1,9 +1,31 @@
 <div id="all-tracks" class="col-md-8">
   <h3>All songs</h3>
+  <div class="dropdown track-sort">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Sort by
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      <li><a href="#">Recent</a></li>
+      <li><a href="#">Likes</a></li>
+      <li><a href="#">Title</a></li>
+    </ul>
+  </div>
   <ul id="tracks-index" class="list-group"></ul>
 </div>
 
 <div id="users-index" class="col-md-4">
   <h3>All people</h3>
+  <div class="dropdown users-sort">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Sort by
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      <li><a href="#">Name</a></li>
+      <li><a href="#">Followers</a></li>
+      <li><a href="#">Likes</a></li>
+    </ul>
+  </div>
   <div id="all-users"></div>
 </div>

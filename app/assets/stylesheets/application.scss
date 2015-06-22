@@ -167,6 +167,19 @@ body {
   width: 300px;
 }
 
+#all-tracks .track-sort {
+  left: 105px;
+  bottom: 40px;
+  margin-bottom: -31px;
+}
+
+#users-index .users-sort {
+  left: 117px;
+  bottom: 40px;
+  margin-bottom: -31px;
+}
+
+
 #tracks-list .list-group-item {
   position: relative;
   transition: background-color 1s;
