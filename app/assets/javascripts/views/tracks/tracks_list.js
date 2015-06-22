@@ -2,6 +2,7 @@ AudioFileApp.Views.TracksList = Backbone.CompositeView.extend({
   initialize: function () {
     this.collection.fetch();
     this.listenTo(this.collection, 'add', this.addTrackSubview);
+    this.listenTo(this.collection, 'sort', this.sort);
   },
 
   template: JST['tracks/tracks_list'],
@@ -19,5 +20,14 @@ AudioFileApp.Views.TracksList = Backbone.CompositeView.extend({
     this.$el.html(content);
     this.attachSubviews();
     return this;
+  },
+
+  sort: function (tracks) {
+    this.eachSubview(function (trackView) {
+      trackView.remove();
+    });
+    this.collection.each(function (track) {
+      this.addTrackSubview(track);
+    }.bind(this));
   },
 });
