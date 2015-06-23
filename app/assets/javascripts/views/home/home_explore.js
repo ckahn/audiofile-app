@@ -66,7 +66,15 @@ AudioFileApp.Views.HomeExplore = Backbone.CompositeView.extend({
    sortUserByName: function (e) {
      e.preventDefault();
      $('#user-sort-option').text('name');
-     this.allUsers.comparator = 'username';
+     this.allUsers.comparator = function (user1, user2) {
+       if (user1.get('username').toLowerCase() > user2.get('username').toLowerCase()) {
+         return 1;
+       } else if (user1.get('username').toLowerCase() < user2.get('username').toLowerCase()) {
+         return -1;
+       } else {
+         return 0;
+       }
+     };
      this.allUsers.sort();
    },
 
