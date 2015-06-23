@@ -5,7 +5,7 @@ def img_rand()
 end
 
 guest = User.new(
-  username: 'Guest',
+  username: 'guest',
   password: pw,
   location: 'San Francisco, California',
   image: 'http://lorempixel.com/200/200/people/9/'
@@ -81,9 +81,20 @@ radiohead = User.new(
 radiohead.save
 
 songs = [
-  { title: 'Paranoid Android', source: 'https://dl.dropboxusercontent.com/u/848790/Radiohead%20OK%20Computer/02%20Paranoid%20Android.mp3', image: 'http://assets.rollingstone.com/assets/images/list/fd08d3d60d7c485b72f0e7116690f84be3e73e8d.jpg' },
-  { title: 'Karma Police', source: 'https://dl.dropboxusercontent.com/u/848790/Radiohead%20OK%20Computer/06%20Karma%20Police.mp3', image: 'http://assets.rollingstone.com/assets/images/list/fd08d3d60d7c485b72f0e7116690f84be3e73e8d.jpg' },
-  { title: 'No Surprises', source: 'https://dl.dropboxusercontent.com/u/848790/Radiohead%20OK%20Computer/10%20No%20Surprises.mp3', image: 'http://assets.rollingstone.com/assets/images/list/fd08d3d60d7c485b72f0e7116690f84be3e73e8d.jpg' }
+  {
+    title: 'Paranoid Android',
+    source: 'https://dl.dropboxusercontent.com/u/848790/Radiohead%20OK%20Computer/02%20Paranoid%20Android.mp3',
+    image: 'http://assets.rollingstone.com/assets/images/list/fd08d3d60d7c485b72f0e7116690f84be3e73e8d.jpg'
+  },
+  {
+    title: 'Karma Police',
+    source: 'https://dl.dropboxusercontent.com/u/848790/Radiohead%20OK%20Computer/06%20Karma%20Police.mp3',
+    image: 'http://assets.rollingstone.com/assets/images/list/fd08d3d60d7c485b72f0e7116690f84be3e73e8d.jpg'
+  },
+  { title: 'No Surprises',
+    source: 'https://dl.dropboxusercontent.com/u/848790/Radiohead%20OK%20Computer/10%20No%20Surprises.mp3',
+    image: 'http://assets.rollingstone.com/assets/images/list/fd08d3d60d7c485b72f0e7116690f84be3e73e8d.jpg'
+  }
 ]
 
 songs.each do |song|
@@ -103,8 +114,15 @@ phantogram = User.new(
 phantogram.save
 
 songs = [
-  { title: 'Mouthful of Diamonds', source: 'https://dl.dropboxusercontent.com/u/848790/Phantogram/Mouthful%20Of%20Diamonds.mp3', image: 'http://www.undergroundhiphop.com/store/covers_large/GI104LP.jpg?width=400&height=400&quality=100' },
-  { title: 'When I\'m Small', source: 'https://dl.dropboxusercontent.com/u/848790/Phantogram/When%20Im%20Small.mp3', image: 'http://www.undergroundhiphop.com/store/covers_large/GI104LP.jpg?width=400&height=400&quality=100' },
+  {
+    title: 'Mouthful of Diamonds',
+    source: 'https://dl.dropboxusercontent.com/u/848790/Phantogram/Mouthful%20Of%20Diamonds.mp3',
+    image: 'http://www.undergroundhiphop.com/store/covers_large/GI104LP.jpg?width=400&height=400&quality=100'
+  },
+  { title: 'When I\'m Small',
+    source: 'https://dl.dropboxusercontent.com/u/848790/Phantogram/When%20Im%20Small.mp3',
+    image: 'http://www.undergroundhiphop.com/store/covers_large/GI104LP.jpg?width=400&height=400&quality=100'
+  },
 ]
 
 songs.each do |song|
@@ -175,7 +193,11 @@ users.each do |user|
   user.save
 end
 
-# 5.times do |i|
+Track.all.each do |track|
+  track.created_at = Time.now - rand(9000000)
+  track.save
+end
+
 #   user = User.new(
 #     username: "User-#{i+1}",
 #     password: 'password',
