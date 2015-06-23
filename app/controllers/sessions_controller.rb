@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
   end
 
   def guest
-    @user = User.find_by_credentials('Radiohead', 'password')
+    @user = User.find_by_credentials('guest', 'password')
     if @user
       log_in(@user)
       redirect_to root_url

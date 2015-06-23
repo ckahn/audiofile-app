@@ -4,6 +4,45 @@ def img_rand()
  "http://lorempixel.com/200/200/abstract/#{rand(10)}"
 end
 
+guest = User.new(
+  username: 'Guest',
+  password: pw,
+  location: 'San Francisco, California',
+  image: 'http://lorempixel.com/200/200/people/9/'
+)
+
+guest.save
+
+songs = [
+  {
+    title: 'Not in Love - Crystal Castles',
+    source: 'https://dl.dropboxusercontent.com/u/848790/Guest/Not%20In%20Love%20-%20Crystal%20Castles%20%28ft.%20Robert%20Smith%29.mp3',
+    image: 'https://hustlemagazine.files.wordpress.com/2011/11/3173381.jpg'
+  },
+  {
+    title: 'Sail - AWOLNATION',
+    source: 'https://dl.dropboxusercontent.com/u/848790/Guest/SAIL%20-%20AWOLNATION%20%28Unofficial%20Video%29.mp3',
+    image: 'http://lyrics.songonlyrics.net/wp-content/uploads/2011/06/Megalithic-Symphony-Album-cover.jpg'
+  },
+  {
+    title: 'Breathing Underwater - Metric',
+    source: 'https://dl.dropboxusercontent.com/u/848790/Guest/Metric%20-%20Breathing%20Underwater.mp3',
+    image: 'http://ecx.images-amazon.com/images/I/81njEpZ0aWL._SY355_.jpg'
+  },
+  {
+    title: 'Such Great Heights - Postal Service',
+    source: 'https://dl.dropboxusercontent.com/u/848790/Guest/The%20Postal%20Service%20-%20Such%20Great%20Heights%20%28OFFICIAL%20VIDEO%29.mp3',
+    image: 'http://cdn.pitchfork.com/media/6432-give-up.jpg'
+  }
+]
+
+songs.each do |song|
+  song = Track.new(song)
+  guest.uploaded_tracks << song
+end
+
+guest.save
+
 bjork = User.new(
   username: 'Bjork',
   password: pw,
@@ -14,9 +53,15 @@ bjork = User.new(
 bjork.save
 
 songs = [
-  { title: 'Hunter', source: 'https://dl.dropboxusercontent.com/u/848790/Bjork%20-%20Homogenic/01%20Hunter.mp3', image: 'http://assets.rollingstone.com/assets/images/album_review/c16c7eb513594e8ed38c887363647daee805dbe7.jpg' },
-  { title: 'Joga', source: 'https://dl.dropboxusercontent.com/u/848790/Bjork%20-%20Homogenic/02%20J%C3%B3ga.mp3', image: 'http://assets.rollingstone.com/assets/images/album_review/c16c7eb513594e8ed38c887363647daee805dbe7.jpg' },
-  { title: 'Bachelorette', source: 'https://dl.dropboxusercontent.com/u/848790/Bjork%20-%20Homogenic/04%20Bachelorette.mp3', image: 'http://assets.rollingstone.com/assets/images/album_review/c16c7eb513594e8ed38c887363647daee805dbe7.jpg' }
+  {
+    title: 'Hunter',
+    source: 'https://dl.dropboxusercontent.com/u/848790/Bjork%20-%20Homogenic/01%20Hunter.mp3',
+    image: 'http://assets.rollingstone.com/assets/images/album_review/c16c7eb513594e8ed38c887363647daee805dbe7.jpg'
+  },
+  { title: 'Joga',
+    source: 'https://dl.dropboxusercontent.com/u/848790/Bjork%20-%20Homogenic/02%20J%C3%B3ga.mp3',
+    image: 'http://assets.rollingstone.com/assets/images/album_review/c16c7eb513594e8ed38c887363647daee805dbe7.jpg'
+  },
 ]
 
 songs.each do |song|
