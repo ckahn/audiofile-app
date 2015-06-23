@@ -1,5 +1,6 @@
 json.array! @user.liked_tracks do |track|
-  json.extract! track, :id, :title, :image, :uploader_id, :source
+  json.extract! track, :id, :title, :created_at, :image, :uploader_id, :source
+  json.time_ago time_ago_in_words(track.created_at)
   json.uploader_name track.uploader.username
   json.uploader_link "#/users/#{track.uploader_id}"
   json.like track.likes.find_by(user_id: current_user.id)
