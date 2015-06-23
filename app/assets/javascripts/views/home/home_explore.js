@@ -38,7 +38,16 @@ AudioFileApp.Views.HomeExplore = Backbone.CompositeView.extend({
    sortTrackByRecent: function (e) {
      e.preventDefault();
      $('#track-sort-option').text('recent');
-     console.log('SORT BY RECENT');
+     this.allTracks.comparator = function (track1, track2) {
+       if (track1.get('created_at') > track2.get('created_at')) {
+         return -1;
+       } else if (track1.get('created_at') < track2.get('created_at')) {
+         return 1;
+       } else {
+         return 0;
+       }
+     };
+     this.allTracks.sort();
    },
 
    sortTrackByLikes: function (e) {
