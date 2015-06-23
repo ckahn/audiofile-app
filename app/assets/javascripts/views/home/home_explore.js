@@ -7,10 +7,10 @@ AudioFileApp.Views.HomeExplore = Backbone.CompositeView.extend({
     });
     this.addSubview("#tracks-index", this.tracksIndexView);
 
-    allUsers = new AudioFileApp.Collections.Users()
-    allUsers.fetch();
+    this.allUsers = new AudioFileApp.Collections.Users()
+    this.allUsers.fetch();
     var usersIndexView = new AudioFileApp.Views.UsersList({
-      collection: allUsers
+      collection: this.allUsers
     });
     this.addSubview("#all-users", usersIndexView);
   },
@@ -19,6 +19,9 @@ AudioFileApp.Views.HomeExplore = Backbone.CompositeView.extend({
     'click a#track-sort-recent': 'sortTrackByRecent',
     'click a#track-sort-likes': 'sortTrackByLikes',
     'click a#track-sort-title': 'sortTrackByTitle',
+    'click a#user-sort-name': 'sortUserByName',
+    'click a#user-sort-followers': 'sortUserByFollowers',
+    'click a#user-sort-likes': 'sortUserByLikes',
   },
 
   id: 'explore-view',
@@ -59,4 +62,41 @@ AudioFileApp.Views.HomeExplore = Backbone.CompositeView.extend({
      this.allTracks.comparator = 'title';
      this.allTracks.sort();
    },
+
+   sortUserByName: function (e) {
+     e.preventDefault();
+     $('#user-sort-option').text('name');
+     this.allUsers.comparator = 'username';
+     this.allUsers.sort();
+   },
+
+   sortUserByFollowers: function (e) {
+     e.preventDefault();
+     $('#user-sort-option').text('followers');
+     this.allUsers.comparator = function (user1, user2) {
+       if (user1.get('num_followers') > user2.get('num_followers')) {
+         return -1;
+       } else if (user1.get('num_followers') < user2.get('num_followers')) {
+         return 1;
+       } else {
+         return 0;
+       }
+     };
+     this.allUsers.sort();
+   },
+
+   sortUserByLikes: function (e) {
+     e.preventDefault();
+     $('#user-sort-option').text('likes');
+     this.allUsers.comparator = function (user1, user2) {
+       if (user1.get('num_likes') > user2.get('num_likes')) {
+         return -1;
+       } else if (user1.get('num_likes') < user2.get('num_likes')) {
+         return 1;
+       } else {
+         return 0;
+       }
+     };
+     this.allUsers.sort();
+   }
 });

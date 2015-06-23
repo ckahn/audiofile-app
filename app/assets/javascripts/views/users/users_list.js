@@ -1,6 +1,7 @@
 AudioFileApp.Views.UsersList = Backbone.CompositeView.extend({
   initialize: function () {
     this.listenTo(this.collection, 'add', this.addUserSubview);
+    this.listenTo(this.collection, 'sort', this.sort);
   },
 
   template: JST['users/users_list'],
@@ -18,5 +19,14 @@ AudioFileApp.Views.UsersList = Backbone.CompositeView.extend({
     this.$el.html(content);
     this.attachSubviews();
     return this;
+  },
+
+  sort: function (tracks) {
+    this.eachSubview(function (userView) {
+      userView.remove();
+    });
+    this.collection.each(function (user) {
+      this.addUserSubview(user);
+    }.bind(this));
   },
 })
