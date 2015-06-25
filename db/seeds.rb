@@ -186,9 +186,8 @@ users.each do |user|
     user.followed_users << User.find(users_id[i])
   end
 
-  5.times do |i|
-    user.liked_tracks << Track.find(rand(track_count) + 1)
-  end
+  indexes = (1..track_count).to_a.sample(5)
+  indexes.each { |idx| user.liked_tracks << Track.find(idx) }
 
   user.save
 end
