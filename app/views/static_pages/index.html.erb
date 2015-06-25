@@ -15,10 +15,4 @@
   $(document).ready(function () {
     AudioFileApp.initialize();
   });
-
-  // Need this to handle Back button clicks
-  $(document).on('page:load', function () {
-    Backbone.history.stop();
-    AudioFileApp.initialize();
-  });
 </script>

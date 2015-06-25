@@ -15,7 +15,6 @@
 //= require jquery_ujs
 //= require jquery.serializejson
 //= require cloudinary
-//= require turbolinks
 //= require underscore
 //= require backbone
 //= require audiofile_app
