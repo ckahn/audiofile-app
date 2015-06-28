@@ -13,5 +13,12 @@ json.num_followers @user.followers.size
 json.followers @user.followers do |follower|
   json.id follower.id
   json.username follower.username
+  json.location follower.location
   json.image follower.image
+  num_likes = 0
+  follower.uploaded_tracks.each do |track|
+    num_likes += track.likes.size
+  end
+  json.num_likes num_likes
+  json.num_followers follower.followers.size
 end
