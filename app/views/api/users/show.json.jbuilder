@@ -21,4 +21,5 @@ json.followers @user.followers do |follower|
   end
   json.num_likes num_likes
   json.num_followers follower.followers.size
+  json.follow follower.followed_relationships.find_by(follower_id: current_user.id)
 end

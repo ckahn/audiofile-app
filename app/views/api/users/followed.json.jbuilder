@@ -8,6 +8,6 @@ json.array! @user.followed_users do |followed|
     num_likes += track.likes.size
   end
   json.num_likes num_likes
-  json.num_follows followed.followers.size
+  json.num_followers followed.followers.size
   json.follow @user.follower_relationships.find_by(followed: followed.id)
 end
