@@ -1,6 +1,6 @@
 AudioFileApp.Views.User = Backbone.View.extend({
   initialize: function () {
-    this.model.fetch();
+    // this.model.fetch();
     this.listenTo(this.model, 'change:num_follows', this.render);
   },
 

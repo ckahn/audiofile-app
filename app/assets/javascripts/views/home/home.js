@@ -1,6 +1,5 @@
 AudioFileApp.Views.Home = Backbone.View.extend({
   initialize: function () {
-    this.exploreView = new AudioFileApp.Views.HomeExplore();
     this.streamView = new AudioFileApp.Views.HomeStream();
   },
 
