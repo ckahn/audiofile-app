@@ -1,6 +1,5 @@
 # AudioFile
-[live link](https://audio-file.herokuapp.com)
-<!-- Add link when available -->
+[live link](http://audio-file.us)
 
 ## Minimum Viable Product
 AudioFile is an audio-sharing web application built with Ruby on Rails on the
