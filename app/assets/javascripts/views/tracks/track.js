@@ -20,41 +20,26 @@ AudioFileApp.Views.Track = Backbone.CompositeView.extend({
     this.addSubview("#like-widget", likeWidgetView);
   },
 
-  addPlayDisplay: function () {
-    $('#song-icon').attr('src', this.model.escape('image'));
-    $('#song-uploader-sm a')
-      .attr('href', this.model.escape('uploader_link'))
-      .text(this.model.escape('uploader_name'));
-    $('#song-title-sm').text(this.model.get('title'));
-    $('#audio-player').removeClass('hidden');
-    this.toggleDisplay();
-    AudioFileApp.Models.currentTrack.set('id', this.model.id);
-    this.listenToOnce(
-      AudioFileApp.Models.currentTrack, 'change:id', this.removePlayDisplay
-    );
-    this.playIntId = window.setInterval(
-      this.trackPlayProgress.bind(this), 1000
-    );
-  },
-
-  isPlaying: function () {
-    if (this.model === undefined) {
-      return false;
-    } else {
-      return this.model.id === AudioFileApp.Models.currentTrack.id;
-    }
-  },
-
-  playSong: function () {
+  beginAudioStream: function () {
     $('#audio-player audio')
       .attr('src', this.model.escape('source'))[0]
       .play();
-    this.addPlayDisplay();
+  },
+
+  isPlaying: function () {
+    return this.model.id === AudioFileApp.Models.currentlyPlaying.id;
+  },
+
+  playSong: function () {
+    this.beginAudioStream();
+    AudioFileApp.Models.currentlyPlaying.set('id', this.model.id);
+    this.updateTrackDisplay();
+    this.showPlayerWidget();
   },
 
   removePlayDisplay: function () {
-    this.stopListening(AudioFileApp.Models.currentTrack);
-    this.toggleDisplay();
+    this.stopListening(AudioFileApp.Models.currentlyPlaying);
+    this.toggleClasses();
     this.$el.find('.progress-bar').attr('style', 'width: 0%');
   },
 
@@ -62,21 +47,39 @@ AudioFileApp.Views.Track = Backbone.CompositeView.extend({
     var content = this.template({ track: this.model });
     this.$el.html(content);
     if (this.isPlaying()) {
-      this.addPlayDisplay();
+      this.updateTrackDisplay();
     }
     this.attachSubviews();
     return this;
   },
 
+  showPlayerWidget: function () {
+    $('#song-icon').attr('src', this.model.escape('image'));
+    $('#song-uploader-sm a')
+      .attr('href', this.model.escape('uploader_link'))
+      .text(this.model.escape('uploader_name'));
+    $('#song-title-sm').text(this.model.get('title'));
+    $('#audio-player').removeClass('hidden');
+  },
+
   stopPlayingSong: function () {
-    AudioFileApp.Models.currentTrack.set('id', null, { silent: true });
+    AudioFileApp.Models.currentlyPlaying.set('id', null, { silent: true });
     $('#audio-player').addClass('hidden');
     $('#audio-player audio')[0].pause();
     clearInterval(this.playIntId);
     this.removePlayDisplay();
   },
 
-  toggleDisplay: function () {
+  syncPlayProgress: function () {
+    var view = this;
+    var player = $('#audio-player audio')[0];
+    this.playIntId = window.setInterval(function () {
+      var progress = player.currentTime / player.duration * 100;
+      view.$el.find('.progress-bar').attr('style', 'width: ' + progress + '%');
+    }, 1000);
+  },
+
+  toggleClasses: function () {
     this.$el.toggleClass('playing');
     this.$el.find('.progress').toggleClass('hidden');
     this.$el.find('#player-button-icon')
@@ -90,9 +93,12 @@ AudioFileApp.Views.Track = Backbone.CompositeView.extend({
     this.model.toggleLike();
   },
 
-  trackPlayProgress: function () {
-    var player = $('#audio-player audio')[0];
-    var progress = player.currentTime / player.duration * 100;
-    this.$el.find('.progress-bar').attr('style', 'width: ' + progress + '%');
+  updateTrackDisplay: function () {
+    this.toggleClasses();
+    this.syncPlayProgress();
+    // prepare to revert display if user clicks Play on a new track
+    this.listenToOnce(
+      AudioFileApp.Models.currentlyPlaying, 'change:id', this.removePlayDisplay
+    );
   },
 });
