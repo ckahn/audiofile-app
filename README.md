@@ -37,7 +37,6 @@ where it is shown.
    updateTrackDisplay: function () {
       this.toggleClasses();
       this.syncPlayProgress();
-     // prepare to revert display if user clicks Play on a new track
       this.listenToOnce(
         AudioFileApp.Models.currentlyPlaying, 'change:id', this.removePlayDisplay
       );
@@ -78,11 +77,15 @@ collection and then sorting the collection accordingly:
    }
 ``` 
    The associated view listens for a `sort` event on its collection, and when
-such an event occurs it removes the current view items and them adds them back
+such an event occurs it removes the current view items and then adds them back
 according to the new order:
 
    ```javascript
-   this.listenTo(this.collection, 'sort', this.sort);
+   initialize: function () {
+      this.collection.fetch();
+      this.listenTo(this.collection, 'add', this.addTrackSubview);
+      this.listenTo(this.collection, 'sort', this.sort);
+   },
    
    sort: function (tracks) {
       this.eachSubview(function (userView) {
