@@ -25,22 +25,22 @@ where it is shown.
 
    ```javascript
    render: function () {
-     var content = this.template({ track: this.model });
-     this.$el.html(content);
-     if (this.isPlaying()) {
+      var content = this.template({ track: this.model });
+      this.$el.html(content);
+      if (this.isPlaying()) {
         this.updateTrackDisplay();
-     }
-     this.attachSubviews();
-     return this;
+      }
+      this.attachSubviews();
+      return this;
    },
 
    updateTrackDisplay: function () {
-     this.toggleClasses();
-     this.syncPlayProgress();
+      this.toggleClasses();
+      this.syncPlayProgress();
      // prepare to revert display if user clicks Play on a new track
-     this.listenToOnce(
+      this.listenToOnce(
         AudioFileApp.Models.currentlyPlaying, 'change:id', this.removePlayDisplay
-     );
+      );
    },
    ```
 
@@ -49,12 +49,12 @@ repeating callback passed to `setInterval`:
 
    ```javascript
    syncPlayProgress: function () {
-     var view = this;
-     var player = $('#audio-player audio')[0];
-     this.playIntId = window.setInterval(function () {
+      var view = this;
+      var player = $('#audio-player audio')[0];
+      this.playIntId = window.setInterval(function () {
         var progress = player.currentTime / player.duration * 100;
         view.$el.find('.progress-bar').attr('style', 'width: ' + progress + '%');
-     }, 1000);
+      }, 1000);
    },
    ```
 
