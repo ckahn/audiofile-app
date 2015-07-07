@@ -66,6 +66,17 @@ class User < ActiveRecord::Base
     self.session_token = SecureRandom.urlsafe_base64
   end
 
+  def track_likes_hash
+    zipped_likes = likes.pluck(:track_id).zip(likes)
+    likes_hash = {}
+
+    zipped_likes.each do |(id, like)|
+      likes_hash[id] = like
+    end
+
+    likes_hash
+  end
+
   private
 
   def ensure_session_token

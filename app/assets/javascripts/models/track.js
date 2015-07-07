@@ -13,4 +13,5 @@ AudioFileApp.Models.Track = Backbone.Model.extend(
   })
 );
 
-AudioFileApp.Models.currentlyPlaying = new AudioFileApp.Models.Track({ id: null });
+AudioFileApp.Models.currentlyPlaying =
+  new AudioFileApp.Models.Track({ id: null });

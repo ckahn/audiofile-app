@@ -12,7 +12,8 @@ module Api
     end
 
     def index
-      @tracks = Track.all
+      @tracks = Track.includes(:uploader, :likes)
+      @likes_hash = current_user.track_likes_hash
       render 'index'
     end
 
