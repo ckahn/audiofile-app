@@ -63,11 +63,10 @@ AudioFileApp.Views.Track = Backbone.CompositeView.extend({
   },
 
   stopPlayingSong: function () {
-    AudioFileApp.Models.currentlyPlaying.set('id', null, { silent: true });
     $('#audio-player').addClass('hidden');
     $('#audio-player audio')[0].pause();
     clearInterval(this.playIntId);
-    this.removePlayDisplay();
+    AudioFileApp.Models.currentlyPlaying.set('id', null);
   },
 
   syncPlayProgress: function () {
@@ -96,7 +95,6 @@ AudioFileApp.Views.Track = Backbone.CompositeView.extend({
   updateTrackDisplay: function () {
     this.toggleClasses();
     this.syncPlayProgress();
-    // prepare to revert display if user clicks Play on a new track
     this.listenToOnce(
       AudioFileApp.Models.currentlyPlaying, 'change:id', this.removePlayDisplay
     );
