@@ -1,5 +1,5 @@
 <% action_path, submit_label, div_class = session_url, "Log In", "login" %>
-<% if form_type === :new_user %>
+<% if form_type == :new_user %>
 <% action_path, submit_label, div_class = users_url, "Sign Up", "signup" %>
 <% end %>
 
@@ -7,6 +7,9 @@
   <div class="<%= div_class %>">
     <%= image_tag("AudioFile-logo.png", height: "250px:", alt: "logo", class: "center-block") %>
     <h3 id="logo-subtitle">A place to share your music</h3>
+    <% if form_type == :new_user %>
+    <h4 style="color: #D9230F;">Create an account</h4>
+    <% end %>
     <form action="<%= action_path %>" method="post">
       <input type="hidden" name="authenticity_token"
              value="<%= form_authenticity_token %>">
@@ -22,7 +25,7 @@
                id="password-field" placeholder="Password">
       </div>
 
-      <% if form_type === :new_user %>
+      <% if form_type == :new_user %>
         <div class="form-group">
           <label class="sr-only" for="location-field">Location</label>
           <input type="location" name="user[location]" class="form-control"
@@ -45,7 +48,7 @@
 
     <p style="margin-top: 10px;">
       <% if form_type === :new_user %>
-          Don't need to create an account? <a href="<%= new_session_url %>">Log in</a>.
+        Already have an account? <a href="<%= new_session_url %>">Log in</a>.
       <% else %>
         Don't have an account? <a href="<%= new_user_url %>">Create one</a> or
         <a href="<%= session_guest_url %>">use the guest account</a>.

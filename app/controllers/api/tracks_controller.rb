@@ -12,7 +12,7 @@ module Api
     end
 
     def index
-      @tracks = Track.includes(:uploader, :likes)
+      @tracks = Track.includes(:uploader, :likes).order(created_at: :desc)
       @likes_hash = current_user.track_likes_hash
       render 'index'
     end

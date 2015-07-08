@@ -4,6 +4,7 @@ module Api
 
     def index
       @users = User.all.includes(:followers, uploaded_tracks: [:likes])
+        .order(:username)
       @follows_hash = current_user.follows_hash
       render 'index'
     end
@@ -39,8 +40,9 @@ module Api
       user = User.find(params[:id])
       @likes_hash = user.track_likes_hash
       @tracks = []
-      followed_users = user.followed_users.includes(:uploaded_tracks)
+      followed_users = user.followed_users.includes(uploaded_tracks: [:likes])
       followed_users.each { |user| @tracks.concat(user.uploaded_tracks) }
+      @tracks.sort_by! { |track| track.created_at }.reverse!
       render 'stream'
     end
 
