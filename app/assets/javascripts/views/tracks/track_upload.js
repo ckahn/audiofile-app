@@ -8,7 +8,11 @@ AudioFileApp.Views.TrackUpload = Backbone.View.extend({
 
     this.$uploadForm = $.cloudinary.unsigned_upload_tag(
       "notransforms",
-      { cloud_name: "dhowpobqx" }
+      {
+        cloud_name: "dhowpobqx",
+        resource_type: "raw",
+        file: "DATA"
+      }
     );
 
     this.$uploadForm.addClass('hide').attr('id', 'file');
@@ -54,7 +58,7 @@ AudioFileApp.Views.TrackUpload = Backbone.View.extend({
     var content = this.template({ track: this.track });
     this.$el.html(content);
     this.$el.find('#select-file').prepend(this.$uploadForm);
-    
+
     this.$el.on('hidden.bs.modal', function () {
       if (this.uploadProcess) {
         this.uploadProcess.abort();

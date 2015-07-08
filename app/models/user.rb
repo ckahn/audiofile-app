@@ -53,6 +53,18 @@ class User < ActiveRecord::Base
     nil
   end
 
+  def follows_hash
+    zipped_follows =
+      follower_relationships.pluck(:followed_id).zip(follower_relationships)
+    follows_hash = {}
+
+    zipped_follows.each do |id, follow|
+      follows_hash[id] = follow
+    end
+
+    follows_hash
+  end
+
   def has_password?(password)
     BCrypt::Password.new(self.password_digest).is_password?(password)
   end
@@ -70,7 +82,7 @@ class User < ActiveRecord::Base
     zipped_likes = likes.pluck(:track_id).zip(likes)
     likes_hash = {}
 
-    zipped_likes.each do |(id, like)|
+    zipped_likes.each do |id, like|
       likes_hash[id] = like
     end
 

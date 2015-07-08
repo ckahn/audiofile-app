@@ -3,7 +3,8 @@ module Api
     before_filter :require_logged_in, except: [:create, :new]
 
     def index
-      @users = User.all
+      @users = User.all.includes(:followers, uploaded_tracks: [:likes])
+      @follows_hash = current_user.follows_hash
       render 'index'
     end
 
@@ -23,11 +24,11 @@ module Api
     end
 
     def stream
-      @tracks = []
       user = User.find(params[:id])
-      user.followed_users.each do |followed|
-        @tracks += followed.uploaded_tracks
-      end
+      @likes_hash = user.track_likes_hash
+      @tracks = []
+      followed_users = user.followed_users.includes(:uploaded_tracks)
+      followed_users.each { |user| @tracks.concat(user.uploaded_tracks) }
       render 'stream'
     end
 
