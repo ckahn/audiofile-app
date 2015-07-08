@@ -36,7 +36,7 @@ AudioFileApp.Mixins.Followable = {
   },
 
   updateFollowCount: function (delta) {
-    this.set("num_follows", this.get("num_follows") + delta);
+    this.set("num_followers", this.get("num_followers") + delta);
   },
 
   parseFollow: function (payload) {
