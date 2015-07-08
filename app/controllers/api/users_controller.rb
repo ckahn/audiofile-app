@@ -9,17 +9,29 @@ module Api
     end
 
     def liked_tracks
-      @user = User.find(params[:id])
+      user = User.find(params[:id])
+      @tracks = user.liked_tracks.includes(:uploader, :likes)
+      @likes_hash = current_user.track_likes_hash
       render 'liked'
     end
 
     def followed_users
-      @user = User.find(params[:id])
-      render 'followed'
+      @users =
+        User.find(params[:id]).followed_users.includes(uploaded_tracks: [:likes])
+      @follows_hash = current_user.follows_hash
+      render 'index'
+    end
+
+    def followers
+      @users =
+        User.find(params[:id]).followers.includes(uploaded_tracks: [:likes])
+      @follows_hash = current_user.follows_hash
+      render 'index'
     end
 
     def show
       @user = User.find(params[:id])
+      @followers = @user.followers
       render 'show'
     end
 
@@ -42,11 +54,9 @@ module Api
     end
 
     def uploaded
-      @tracks = []
       user = User.find(params[:id])
-      user.uploaded_tracks.each do |track|
-        @tracks << track
-      end
+      @tracks = user.uploaded_tracks.includes(:uploader, :likes)
+      @likes_hash = current_user.track_likes_hash
       render 'uploaded'
     end
 

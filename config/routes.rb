@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     get '/users/:id/stream' => 'users#stream'
     get '/users/:id/liked_tracks' => 'users#liked_tracks'
     get '/users/:id/followed_users' => 'users#followed_users'
+    get '/users/:id/followers' => 'users#followers'
     get '/users/:id/uploaded' => 'users#uploaded'
   end
 

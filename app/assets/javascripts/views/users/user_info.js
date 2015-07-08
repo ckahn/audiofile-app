@@ -2,10 +2,9 @@ AudioFileApp.Views.UserInfo = Backbone.CompositeView.extend({
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
   },
-  //
+
   edit: function (e) {
     e.preventDefault();
-    console.log('EDIT');
     var editView = new AudioFileApp.Views.UserEdit({
       model: this.model
     });

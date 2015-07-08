@@ -7,13 +7,17 @@ AudioFileApp.Views.UserProfile = Backbone.CompositeView.extend({
 
     var uploadedTracks = new AudioFileApp.Collections.TracksIndex();
     uploadedTracks.url = 'api/users/' + this.model.id + '/uploaded';
+    uploadedTracks.fetch();
 
     var uploadedTracksView = new AudioFileApp.Views.TracksList({
       collection: uploadedTracks
     });
     this.addSubview('#user-uploaded-list', uploadedTracksView);
 
-    var followers = this.model.followers();
+    var followers = new AudioFileApp.Collections.Users();
+    followers.url = 'api/users/' + this.model.id + '/followers';
+    followers.fetch();
+
     var followersList = new AudioFileApp.Views.UsersList({
       collection: followers
     });
