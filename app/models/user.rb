@@ -54,14 +54,10 @@ class User < ActiveRecord::Base
   end
 
   def follows_hash
-    zipped_follows =
-      follower_relationships.pluck(:followed_id).zip(follower_relationships)
     follows_hash = {}
-
-    zipped_follows.each do |id, follow|
-      follows_hash[id] = follow
+    follower_relationships.each do |follow|
+      follows_hash[follow.followed_id] = follow
     end
-
     follows_hash
   end
 
@@ -79,13 +75,10 @@ class User < ActiveRecord::Base
   end
 
   def track_likes_hash
-    zipped_likes = likes.pluck(:track_id).zip(likes)
     likes_hash = {}
-
-    zipped_likes.each do |id, like|
-      likes_hash[id] = like
+    likes.each do |like|
+      likes_hash[like.track_id] = like
     end
-
     likes_hash
   end
 
