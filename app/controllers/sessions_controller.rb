@@ -19,14 +19,8 @@ class SessionsController < ApplicationController
   end
 
   def guest
-    @user = User.find_by_credentials('guest', 'password')
-    if @user
-      log_in(@user)
-      redirect_to root_url
-    else
-      flash[:errors] = ["Invalid username/password"]
-      redirect_to new_session_url
-    end
+    log_in(User.find(1))
+    redirect_to root_url
   end
 
   def new
