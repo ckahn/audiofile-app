@@ -23,6 +23,8 @@ AudioFileApp.Views.Collection = Backbone.CompositeView.extend({
   template: JST['collection/collection'],
 
   render: function () {
+    $('nav li').removeClass('active');
+    $('#collection-tab').addClass('active');
     var content = this.template();
     this.$el.html(content);
     this.attachSubviews();

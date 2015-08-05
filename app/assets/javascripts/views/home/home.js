@@ -13,6 +13,8 @@ AudioFileApp.Views.Home = Backbone.View.extend({
   template: JST['home/home'],
 
   render: function () {
+    $('nav li').removeClass('active');
+    $('#home-tab').addClass('active');
     var content = this.template();
     this.$el.html(content);
     this.$el.find('#home-view').html(this.streamView.render().$el);

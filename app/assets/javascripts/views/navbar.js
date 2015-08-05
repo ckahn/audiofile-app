@@ -4,22 +4,10 @@ AudioFileApp.Views.NavbarView = Backbone.View.extend({
   },
 
   events: {
-    'click #navbar li': 'makeCurrentActive',
-    'click a.navbar-brand': 'makeHomeActive',
     'click li#upload': 'upload'
   },
 
   template: JST['navbar'],
-
-  makeCurrentActive: function (event) {
-    $('#navbar li').removeClass('active');
-    $(event.currentTarget).addClass('active');
-  },
-
-  makeHomeActive: function () {
-    $('#navbar li').removeClass('active');
-    $('#home-tab').addClass('active');
-  },
 
   render: function () {
     var content = this.template();

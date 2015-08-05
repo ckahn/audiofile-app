@@ -14,7 +14,7 @@ AudioFileApp.Routers.Router = Backbone.Router.extend({
 
   collection: function () {
     var collectionView = new AudioFileApp.Views.Collection();
-    this.swapView(collectionView)
+    this.swapView(collectionView);
   },
 
   home: function () {
