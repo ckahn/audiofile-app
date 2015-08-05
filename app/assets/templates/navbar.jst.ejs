@@ -1,30 +1,24 @@
 <nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
+  <div class="container container-fluid">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed"
-              data-toggle="collapse" data-target="#navbar"
-              aria-expanded="false" aria-controls="navbar">
-        <span class="sr-only">Toggle navigation</span>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-options" aria-expanded="false">
+        <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="#">AudioFile</a>
     </div>
-    <div id="navbar" class="collapse navbar-collapse">
+    <div class="collapse navbar-collapse" id="navbar-options">
       <ul class="nav navbar-nav">
-        <li id="home-tab" class="active">
-          <a href="#home">Home</a>
-        </li>
+        <li id="home-tab"><a href="#home">Home</a></li>
         <li id="collection-tab"><a href="#collection">My Collection</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li id="upload"><a href="#upload">Upload</a></li>
-        <li><a href="#profile">Profile (<%= CURRENT_USER_NAME %>)</a></li>
-        <li>
-          <a href="/session" data-method="delete" rel="nofollow">Log Out</a>
-        </li>
+        <li><a href="#profile">Profile</a></li>
+        <li><a href="/session" data-method="delete" rel="nofollow">Log Out</a></li>
       </ul>
-    </div><!--/.nav-collapse -->
+    </div>
   </div>
 </nav>
