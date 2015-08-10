@@ -40,9 +40,11 @@ module Api
       user = User.find(params[:id])
       @likes_hash = user.track_likes_hash
       @tracks = []
-      followed_users = user.followed_users.includes(uploaded_tracks: [:likes])
-      followed_users.each { |user| @tracks.concat(user.uploaded_tracks) }
-      @tracks.sort_by! { |track| track.created_at }.reverse!
+      followed_users = user.followed_users.includes(
+        uploaded_tracks: [:likes, :uploader]
+      )
+      followed_users.each { |fuser| @tracks.concat(fuser.uploaded_tracks) }
+      @tracks.sort! { |t1, t2| t2.created_at <=> t1.created_at }
       render 'stream'
     end
 
