@@ -9,7 +9,6 @@ AudioFileApp.Views.Collection = Backbone.CompositeView.extend({
 
     var followed_users = new AudioFileApp.Collections.Users();
     followed_users.url = 'api/users/' + CURRENT_USER_ID + '/followed_users';
-    followed_users.fetch();
 
     followedUsersView = new AudioFileApp.Views.FollowedUsers({
       collection: followed_users
