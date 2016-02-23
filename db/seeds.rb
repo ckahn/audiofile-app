@@ -143,9 +143,9 @@ aphex_twin = User.new(
 aphex_twin.save
 
 songs = [
-  { title: 'Xtal', source: 'https://dl.dropboxusercontent.com/u/848790/Aphex%20Twin%20-%20Selected%20Ambient%20Works%2085-92/01%20Xtal.mp3', image: 'http://www.clashmusic.com/sites/default/files/legacy/files/AphexTwin300.jpg' },
-  { title: 'Pulsewidth', source: 'https://dl.dropboxusercontent.com/u/848790/Aphex%20Twin%20-%20Selected%20Ambient%20Works%2085-92/03%20Pulsewidth.mp3', image: 'http://www.clashmusic.com/sites/default/files/legacy/files/AphexTwin300.jpg' },
-  { title: 'Heliospan', source: 'https://dl.dropboxusercontent.com/u/848790/Aphex%20Twin%20-%20Selected%20Ambient%20Works%2085-92/07%20Heliosphan.mp3', image: 'http://www.clashmusic.com/sites/default/files/legacy/files/AphexTwin300.jpg' }
+  { title: 'Xtal', source: 'https://dl.dropboxusercontent.com/u/848790/Aphex%20Twin%20-%20Selected%20Ambient%20Works%2085-92/01%20Xtal.mp3', image: 'http://altopedia.com/images/b/b8/AphexTwinLogo.png' },
+  { title: 'Pulsewidth', source: 'https://dl.dropboxusercontent.com/u/848790/Aphex%20Twin%20-%20Selected%20Ambient%20Works%2085-92/03%20Pulsewidth.mp3', image: 'http://altopedia.com/images/b/b8/AphexTwinLogo.png' },
+  { title: 'Heliospan', source: 'https://dl.dropboxusercontent.com/u/848790/Aphex%20Twin%20-%20Selected%20Ambient%20Works%2085-92/07%20Heliosphan.mp3', image: 'http://altopedia.com/images/b/b8/AphexTwinLogo.png' }
 ]
 
 songs.each do |song|
@@ -164,8 +164,8 @@ massive_attack = User.new(
 massive_attack.save
 
 songs = [
-  { title: 'Teardrop', source: 'https://dl.dropboxusercontent.com/u/848790/Massive%20Attack%20-%20Mezzanine/03.%20Teardrop.mp3', image: 'http://blog.kexp.org/blog/wp-content/uploads/2008/03/massiveattic.jpg' },
-  { title: 'Exchange', source: 'https://dl.dropboxusercontent.com/u/848790/Massive%20Attack%20-%20Mezzanine/05.%20Exchange.mp3', image: 'http://blog.kexp.org/blog/wp-content/uploads/2008/03/massiveattic.jpg' },
+  { title: 'Teardrop', source: 'https://dl.dropboxusercontent.com/u/848790/Massive%20Attack%20-%20Mezzanine/03.%20Teardrop.mp3', image: 'http://ecx.images-amazon.com/images/I/51cp6TBAcWL._SL500_AA300_.jpg' },
+  { title: 'Exchange', source: 'https://dl.dropboxusercontent.com/u/848790/Massive%20Attack%20-%20Mezzanine/05.%20Exchange.mp3', image: 'http://ecx.images-amazon.com/images/I/51cp6TBAcWL._SL500_AA300_.jpg' },
 ]
 
 songs.each do |song|
