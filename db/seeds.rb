@@ -16,22 +16,22 @@ guest.save
 songs = [
   {
     title: 'Not in Love - Crystal Castles',
-    source: 'https://www.dropbox.com/s/fyghyz10j6svkly/Not%20In%20Love%20-%20Crystal%20Castles%20%28ft.%20Robert%20Smith%29.mp3',
+    source: 'https://github.com/ckahn/audiofile-app/raw/master/app/assets/mp3s/Guest/Not%20In%20Love%20-%20Crystal%20Castles%20(ft.%20Robert%20Smith).mp3',
     image: 'https://hustlemagazine.files.wordpress.com/2011/11/3173381.jpg'
   },
   {
     title: 'Sail - AWOLNATION',
-    source: 'https://www.dropbox.com/s/pr22c0wfxpdwzbn/SAIL%20-%20AWOLNATION%20%28Unofficial%20Video%29.mp3',
+    source: 'https://github.com/ckahn/audiofile-app/raw/master/app/assets/mp3s/Guest/SAIL%20-%20AWOLNATION%20(Unofficial%20Video).mp3',
     image: 'http://lyrics.songonlyrics.net/wp-content/uploads/2011/06/Megalithic-Symphony-Album-cover.jpg'
   },
   {
     title: 'Breathing Underwater - Metric',
-    source: 'https://www.dropbox.com/s/2rjww2ubsif3tth/Metric%20-%20Breathing%20Underwater.mp3',
+    source: 'https://github.com/ckahn/audiofile-app/raw/master/app/assets/mp3s/Guest/Metric%20-%20Breathing%20Underwater.mp3',
     image: 'http://ecx.images-amazon.com/images/I/81njEpZ0aWL._SY355_.jpg'
   },
   {
     title: 'Such Great Heights - Postal Service',
-    source: 'https://www.dropbox.com/s/1f6r9wo11au5vmp/The%20Postal%20Service%20-%20Such%20Great%20Heights%20%28OFFICIAL%20VIDEO%29.mp3',
+    source: 'https://github.com/ckahn/audiofile-app/raw/master/app/assets/mp3s/Guest/The%20Postal%20Service%20-%20Such%20Great%20Heights%20(OFFICIAL%20VIDEO).mp3',
     image: 'http://cdn.pitchfork.com/media/6432-give-up.jpg'
   }
 ]
@@ -55,11 +55,11 @@ bjork.save
 songs = [
   {
     title: 'Hunter',
-    source: 'https://www.dropbox.com/s/1lbrqxd91grmero/01%20Hunter.mp3',
+    source: 'https://github.com/ckahn/audiofile-app/raw/master/app/assets/mp3s/Bjork%20-%20Homogenic/01%20Hunter.mp3',
     image: 'http://assets.rollingstone.com/assets/images/album_review/c16c7eb513594e8ed38c887363647daee805dbe7.jpg'
   },
   { title: 'Joga',
-    source: 'https://www.dropbox.com/s/hzp1fkpouk943oy/02%20J%C3%B3ga.mp3',
+    source: 'https://github.com/ckahn/audiofile-app/raw/master/app/assets/mp3s/Bjork%20-%20Homogenic/02%20J%C3%B3ga.mp3',
     image: 'http://assets.rollingstone.com/assets/images/album_review/c16c7eb513594e8ed38c887363647daee805dbe7.jpg'
   },
 ]
@@ -83,16 +83,16 @@ radiohead.save
 songs = [
   {
     title: 'Paranoid Android',
-    source: 'https://www.dropbox.com/s/faqbdzin2o0eiwk/02%20Paranoid%20Android.mp3',
+    source: 'https://github.com/ckahn/audiofile-app/raw/master/app/assets/mp3s/Radiohead%20OK%20Computer/02%20Paranoid%20Android.mp3',
     image: 'http://assets.rollingstone.com/assets/images/list/fd08d3d60d7c485b72f0e7116690f84be3e73e8d.jpg'
   },
   {
     title: 'Karma Police',
-    source: 'https://www.dropbox.com/s/9kxo550ic0ts4cm/06%20Karma%20Police.mp3',
+    source: 'https://github.com/ckahn/audiofile-app/raw/master/app/assets/mp3s/Radiohead%20OK%20Computer/06%20Karma%20Police.mp3',
     image: 'http://assets.rollingstone.com/assets/images/list/fd08d3d60d7c485b72f0e7116690f84be3e73e8d.jpg'
   },
   { title: 'No Surprises',
-    source: 'https://www.dropbox.com/s/prn2k57b3037le6/10%20No%20Surprises.mp3',
+    source: 'https://github.com/ckahn/audiofile-app/raw/master/app/assets/mp3s/Radiohead%20OK%20Computer/10%20No%20Surprises.mp3',
     image: 'http://assets.rollingstone.com/assets/images/list/fd08d3d60d7c485b72f0e7116690f84be3e73e8d.jpg'
   }
 ]
@@ -116,12 +116,12 @@ phantogram.save
 songs = [
   {
     title: 'Mouthful of Diamonds',
-    source: 'https://www.dropbox.com/s/9wesnyffx621uku/Mouthful%20Of%20Diamonds.mp3',
+    source: 'https://github.com/ckahn/audiofile-app/raw/master/app/assets/mp3s/Phantogram/Mouthful%20Of%20Diamonds.mp3',
     image: 'https://lastfm-img2.akamaized.net/i/u/300x300/9d415aaa859e468bad6fa60cdec85564.jpg'
   },
   { title: 'When I\'m Small',
     source: 'hhttps://www.dropbox.com/s/x9jnrfurvouvr4t/When%20Im%20Small.mp3',
-    image: 'https://lastfm-img2.akamaized.net/i/u/300x300/9d415aaa859e468bad6fa60cdec85564.jpg'
+    image: 'https://github.com/ckahn/audiofile-app/raw/master/app/assets/mp3s/Phantogram/When%20Im%20Small.mp3'
   },
 ]
 
@@ -145,18 +145,18 @@ aphex_twin.save
 songs = [
   {
       title: 'Xtal',
-      source: 'https://www.dropbox.com/s/6efgi0wo474dpwc/01%20Xtal.mp3',
+      source: 'https://github.com/ckahn/audiofile-app/raw/master/app/assets/mp3s/Aphex%20Twin%20-%20Selected%20Ambient%20Works%2085-92/01%20Xtal.mp3',
       image: 'http://altopedia.com/images/b/b8/AphexTwinLogo.png'
   },
   {
       title: 'Pulsewidth',
-      source: 'https://www.dropbox.com/s/5khxvb01079re0c/03%20Pulsewidth.mp3',
+      source: 'https://github.com/ckahn/audiofile-app/raw/master/app/assets/mp3s/Aphex%20Twin%20-%20Selected%20Ambient%20Works%2085-92/03%20Pulsewidth.mp3',
       image: 'http://altopedia.com/images/b/b8/AphexTwinLogo.png'
   },
   {
       title: 'Heliospan',
       source: 'https://www.dropbox.com/s/q507kyu6wdqw0u1/07%20Heliosphan.mp3',
-      image: 'http://altopedia.com/images/b/b8/AphexTwinLogo.png'
+      image: 'https://github.com/ckahn/audiofile-app/raw/master/app/assets/mp3s/Aphex%20Twin%20-%20Selected%20Ambient%20Works%2085-92/07%20Heliosphan.mp3'
   }
 ]
 
@@ -178,12 +178,12 @@ massive_attack.save
 songs = [
   {
       title: 'Teardrop',
-      source: 'https://www.dropbox.com/s/nc2wtld2lu78lfg/03.%20Teardrop.mp3',
+      source: 'https://github.com/ckahn/audiofile-app/raw/master/app/assets/mp3s/Massive%20Attack%20-%20Mezzanine/03.%20Teardrop.mp3',
       image: 'http://ecx.images-amazon.com/images/I/51cp6TBAcWL._SL500_AA300_.jpg'
   },
   {
       title: 'Exchange',
-      source: 'https://dl.dropboxusercontent.com/u/848790/Massive%20Attack%20-%20Mezzanine/05.%20Exchange.mp3',
+      source: 'https://github.com/ckahn/audiofile-app/raw/master/app/assets/mp3s/Massive%20Attack%20-%20Mezzanine/05.%20Exchange.mp3',
       image: 'https://www.dropbox.com/s/vzq17uk5jqgi1t7/05.%20Exchange.mp3'
   },
 ]
