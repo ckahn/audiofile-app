@@ -20,7 +20,7 @@ counts, and also let you see all of a user's followers and uploaded songs.
 visit different pages.
 
 ## Additional features
-* If a track is currently playing, it will be displayed differently on any page 
+* If a track is currently playing, it will be displayed differently in the list 
 where it is shown.
 
    ```javascript
@@ -75,7 +75,8 @@ collection and then sorting the collection accordingly:
       };
       this.allUsers.sort();
    }
-``` 
+   ```
+
    The associated view listens for a `sort` event on its collection, and when
 such an event occurs it removes the current view items and then adds them back
 according to the new order:
